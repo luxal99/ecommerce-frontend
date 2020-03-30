@@ -88,9 +88,12 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/scss/theme.scss",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_module/boo"
+            ]
           }
         },
         "lint": {

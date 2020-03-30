@@ -1,0 +1,48 @@
+.header{
+    background-color: #FF9B28;
+}
+nav{
+    background-color: #FF9B28;
+}
+.text-div{
+    padding-left: 3em;
+    padding-top:5em;
+}
+.row{
+    margin: 0 !important;
+}
+.header-h1{
+    font-size: 70px;
+    line-height: 1em;
+    color: #fff;
+    font-family: 'Fredoka One', cursive;
+}
+.header-paragraf{
+    font-size: 30px;
+    line-height: 1.2em;
+    font-family: 'Bellota Text', cursive;
+}
+.btn-container{
+    padding-left: 3em;
+
+}
+.full-btn{
+    background-color: #fff;
+    padding-top: .5em;
+    color: #FF9B28;
+    padding-bottom: .5em;
+    padding-left: 3em;
+    padding-right: 3em;
+    border: 1px solid #fff;
+}
+
+.border-btn{
+    background-color: transparent;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: 3em;
+    padding-right: 3em;
+    border: 2px solid #fff;
+    margin-left: 1em;
+    color: #fff;
+}
