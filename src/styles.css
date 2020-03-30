@@ -1,2 +1,2 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "assets/css/theme.css";

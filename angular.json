@@ -88,6 +88,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/scss/theme.scss",
               "src/styles.css"
             ],
             "scripts": [

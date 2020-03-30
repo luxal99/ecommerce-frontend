@@ -1,0 +1,13 @@
+@import "../../../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: black!important;
+    opacity: 1!important;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #f59042 !important;
+}.mat-form-field.mat-focused .mat-form-field-label {
+    color: #0f0f0f !important;
+  }
