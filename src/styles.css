@@ -2,3 +2,6 @@
 @import "assets/css/theme.css";
 @import url('https://fonts.googleapis.com/css?family=Bellota+Text|Fredoka+One&display=swap');
 @import '../node_modules/swiper/css/swiper.min.css';
+.swiper-slide{
+    width: auto !important;
+}

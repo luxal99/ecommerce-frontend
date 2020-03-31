@@ -42,26 +42,34 @@
         </div>
         
     </div>
+   
     <div class="product-slider">
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide slider"><img src="../../assets/img/6910486_preview.png"  alt="" class="img-fluid"></div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
-          <div class="swiper-slide">Slide 4</div>
-          <div class="swiper-slide">Slide 5</div>
-          <div class="swiper-slide">Slide 6</div>
-          <div class="swiper-slide">Slide 7</div>
-          <div class="swiper-slide">Slide 8</div>
-          <div class="swiper-slide">Slide 9</div>
-          <div class="swiper-slide">Slide 10</div>
+      <swiper [config]="config">
+
+        <div class="swiper-wrapper product-slider-container">
+      
+          <div class="swiper-slide slider" *ngFor="let product of listOfProducts">
+            <div>
+              <img style="width: 300px;" src="{{product.img}}"/>
+            <h3 class="product-title-h3">{{product.title}}</h3>
+            <h3 class="product-price-h3">{{product.price}}</h3>   
+            <div>
+              <button class="border-btn-orange" mat-button>Detail</button>
+              <button mat-button class="full-btn-orange">Add to card</button>
+            </div>
+            </div>
+          </div>
+      
         </div>
+      
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
+      
         <!-- Add Arrows -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-      </div>
+      
+      </swiper>
     </div>
   </div>
 </div>

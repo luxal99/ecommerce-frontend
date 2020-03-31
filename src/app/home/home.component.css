@@ -1,9 +1,17 @@
+
+/* CSS HEADER START */
+
 .header{
     background-color: #FF9B28;
 }
 nav{
     background-color: #FF9B28;
+    /* -webkit-box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75); */
+    
 }
+
 .text-div{
     padding-left: 3em;
     padding-top:5em;
@@ -15,7 +23,7 @@ nav{
     font-size: 70px;
     line-height: 1em;
     color: #fff;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Fredoka One', cursive;    
 }
 .header-paragraf{
     font-size: 30px;
@@ -34,6 +42,43 @@ nav{
     padding-left: 3em;
     padding-right: 3em;
     border: 1px solid #fff;
+}
+
+/* CSS HEADER END */
+
+.full-btn-orange{
+    background-color: #FF9B28;
+    padding-top: .5em;
+    color: #fff;
+    padding-bottom: .5em;
+    padding-left: 5em;
+    padding-right: 5em;
+    border: 2px solid #fff;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.border-btn-orange{
+    background-color: transparent;
+    padding-top: .5em;
+    color: #FF9B28;
+    padding-bottom: .5em;
+    padding-left: 5em;
+    padding-right: 5em;
+    border: 1px solid #FF9B28;
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+.product-title-h3{
+    font-family: 'Bellota Text', cursive;
+    font-size: 30px;
+    margin-top: 1em;
+}
+.product-price-h3{
+    font-family: 'Fredoka One', cursive;  
+    font-size: 40px;
+    padding-bottom: .5em;
 }
 
 .border-btn{
@@ -71,12 +116,19 @@ nav{
     align-items: center;
   }
   .product-slider{
-      margin-top: 5em;
-      padding-left: 10em;
-      padding-right: 10em;
+      margin-top: 10em;
+
   }
   .slider{
     -webkit-box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
+  }
+  .swiper-wrapper{
+      
+  }
+
+  .product-slider-container{
+     padding-top: 5em;
+     padding-bottom: 5em;
   }
