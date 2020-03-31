@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import Swiper, { SwiperOptions } from 'swiper';
 import { ProductService } from '../service/product.service';
+import { MatDialog } from '@angular/material';
+import { RegistrationDialogComponent } from 'src/app/home/registration-dialog/registration-dialog.component'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,7 +11,7 @@ import { ProductService } from '../service/product.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public productService:ProductService) { }
+  constructor(public productService: ProductService, public dialog: MatDialog) { }
 
   listOfProducts: Array<any>;
 
@@ -18,7 +20,8 @@ export class HomeComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.listOfProducts = this.productService.getProduct();  }
+    this.listOfProducts = this.productService.getProduct();
+  }
 
   config: SwiperOptions = {
     slidesPerView: 3,
@@ -40,10 +43,20 @@ export class HomeComponent implements OnInit {
     this.listOfProducts.forEach(product => {
       if (product.id === idProduct) {
         console.log(product);
-        
+
         return product;
       }
     });
   }
 
+  openRegistrationDialog(): void {
+    const dialogRef = this.dialog.open(RegistrationDialogComponent, {
+      width: 'auto',
+     backdropClass:'registrationDialog'
+    });
+
+  }
+
 }
+
+

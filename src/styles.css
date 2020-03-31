@@ -5,3 +5,11 @@
 .swiper-slide{
     width: auto !important;
 }
+.registrationDialog{
+    background-color: #FF9B28 !important;
+    zoom: 150%;
+}
+
+mat-dialog-container{
+    zoom: 150%;
+}

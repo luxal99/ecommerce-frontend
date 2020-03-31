@@ -132,3 +132,11 @@ nav{
      padding-top: 5em;
      padding-bottom: 5em;
   }
+
+  .nav-link{
+      font-size: 20px;
+  }
+
+.registrationDialog{
+    background-color: #FF9B28;
+}

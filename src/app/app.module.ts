@@ -26,6 +26,7 @@ import { RegistrationDialogComponent } from './home/registration-dialog/registra
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [],
+  entryComponents:[RegistrationDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
