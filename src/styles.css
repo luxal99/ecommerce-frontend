@@ -1,3 +1,4 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 @import "assets/css/theme.css";
 @import url('https://fonts.googleapis.com/css?family=Bellota+Text|Fredoka+One&display=swap');
+@import '../node_modules/swiper/css/swiper.min.css';

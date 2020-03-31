@@ -92,7 +92,8 @@
               "src/styles.css"
             ],
             "scripts": [
-              "node_module/boo"
+              "node_module/boo",
+              "node_module/swiper/js/swiper.min.js"
             ]
           }
         },
