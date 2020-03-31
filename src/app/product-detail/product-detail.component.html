@@ -38,11 +38,11 @@
                     <div>
                         <mat-form-field appearance="outline">
                             <mat-label>Amount</mat-label>
-                            <input matInput placeholder="Amount">
+                            <input matInput placeholder="Amount" value="{{amountCounter}}">
                           </mat-form-field>
                         <div class="btn-div">
-                            <button class="amount-btn"><mat-icon class="icon text-center">add_circle</mat-icon></button>
-                            <button class="amount-btn"><mat-icon class="icon">remove_circle_outline</mat-icon></button>
+                            <button class="amount-btn" (click)="count()"><mat-icon class="icon text-center">add_circle</mat-icon></button>
+                            <button class="amount-btn" (click)="decrease()"><mat-icon class="icon">remove_circle_outline</mat-icon></button>
                         </div>
                         <div class="order-btn-div">
                             <button class="order-btn" mat-button>Purchase</button>
