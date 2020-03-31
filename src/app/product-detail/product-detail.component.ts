@@ -10,20 +10,17 @@ import { Product } from '../classes/Product';
 })
 export class ProductDetailComponent implements OnInit {
 
-
+  product:Product;
   constructor(private route: ActivatedRoute,private productService:ProductService) { }
 
   ngOnInit(): void {
+    this.findProduct();
+  }
 
-    console.log;
-    
+  findProduct(){
     this.route.params.subscribe(params=>{
-
-      console.log(this.productService.findProductById(params.id));
-      
-      
+     this.product = this.productService.findProductById(params.id);
     })
     
   }
-
 }

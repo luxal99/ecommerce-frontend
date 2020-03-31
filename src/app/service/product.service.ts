@@ -9,9 +9,9 @@ export class ProductService {
 
   constructor() { }
 
- public getProduct():Array<Product>{
-   return this.products
- }
+  public getProduct(): Array<Product> {
+    return this.products
+  }
 
   private products: Array<Product> = [
     { idProduct: 1, title: 'Product 1', price: '99$', image: 'assets/img/6910486_preview.png' },
@@ -26,10 +26,10 @@ export class ProductService {
   ]
 
   findProductById(idProduct: Number) {
-    return this.getProduct().find((product:Product)=>{
+    return this.getProduct().find((product: Product) => {
       return product.idProduct = idProduct
     })
-   
+
   }
 
 }
