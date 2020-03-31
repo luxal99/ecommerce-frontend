@@ -50,11 +50,11 @@
       
           <div class="swiper-slide slider" *ngFor="let product of listOfProducts">
             <div>
-              <img style="width: 300px;" src="{{product.img}}"/>
+              <img style="width: 300px;" src="{{product.image}}"/>
             <h3 class="product-title-h3">{{product.title}}</h3>
             <h3 class="product-price-h3">{{product.price}}</h3>   
             <div>
-              <button class="border-btn-orange" routerLink="/detail/{{product.id}}" routerLinkActive="router-link-active"  mat-button>Detail</button>
+              <button class="border-btn-orange" routerLink="/detail/{{product.idProduct}}" routerLinkActive="router-link-active"  mat-button>Detail</button>
               <button mat-button class="full-btn-orange" (click)="findProductById(product.id)">Add to card</button>
             </div>
             </div>

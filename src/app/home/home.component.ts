@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import Swiper, { SwiperOptions } from 'swiper';
+import { ProductService } from '../service/product.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,25 +9,16 @@ import Swiper, { SwiperOptions } from 'swiper';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public productService:ProductService) { }
 
-  listOfProducts: Array<any> = [
-    { id: 1, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { id: 2, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { id: 3, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { id: 4, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { id: 5, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { id: 6, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { id: 7, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { id: 8, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' }
-  ]
+  listOfProducts: Array<any>;
 
   form = new FormGroup({
     name: new FormControl()
   });
 
   ngOnInit(): void {
-  }
+    this.listOfProducts = this.productService.getProduct();  }
 
   config: SwiperOptions = {
     slidesPerView: 3,

@@ -28,7 +28,28 @@
               <div class="col-sm">
                   <img src="{{product.image}}" alt="" class="img-fluid">
               </div>
-              <div class="col-sm"></div>
+              <mat-divider [vertical]="true"></mat-divider>
+              <div class="col-sm text-left right-col">
+                  <div class="info-div">
+                      <h1 class="product-title-h1">{{product.title}}</h1>
+                      <h1 class="product-description-h1">{{product.description}}</h1>
+                      <h1 class="product-price-h1">{{product.price}}</h1>
+
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Amount</mat-label>
+                            <input matInput placeholder="Amount">
+                          </mat-form-field>
+                        <div class="btn-div">
+                            <button class="amount-btn"><mat-icon class="icon text-center">add_circle</mat-icon></button>
+                            <button class="amount-btn"><mat-icon class="icon">remove_circle_outline</mat-icon></button>
+                        </div>
+                        <div class="order-btn-div">
+                            <button class="order-btn" mat-button>Purchase</button>
+                        </div>
+                    </div>
+                  </div>
+              </div>
           </div>
       </div>
 </div>

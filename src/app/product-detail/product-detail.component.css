@@ -1,8 +1,60 @@
-
-nav{
+nav {
     background-color: #FF9B28;
     /* -webkit-box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75); */
+}
+
+.row {
+    margin: 0 !important;
+    
+}
+
+.amount-btn {
+    background-color: transparent;
+    padding: 1em;
+    border: 0;
+}
+.right-col{
+    margin-left: 2em;
+}
+.icon {
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-btn{
+    background-color: #FF9B28;
+    padding-top: .5em;
+    color: #fff;
+    padding-bottom: .5em;
+    padding-left: 5em;
+    padding-right: 5em;
+    border: 2px solid #fff;
+}
+
+mat-form-field{
+    width: 10%;
+}
+
+.product-title-h1{
+    font-family: 'Bellota Text', cursive;
+    font-size: 60px;
+}
+
+.product-description-h1{
+    font-family: 'Bellota Text', cursive;
+    font-size: 22px;
+}
+
+.product-price-h1{
+    font-family: 'Fredoka One', cursive;
+    font-size: 30px;
+}
+
+.product-container{
+    margin-top: 5em;
     
 }
