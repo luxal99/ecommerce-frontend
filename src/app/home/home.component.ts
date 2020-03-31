@@ -11,14 +11,14 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   listOfProducts: Array<any> = [
-    { title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
-    { title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' }
+    { id: 1, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
+    { id: 2, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
+    { id: 3, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
+    { id: 4, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
+    { id: 5, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
+    { id: 6, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
+    { id: 7, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' },
+    { id: 8, title: 'Product 1', price: '99$', img: 'assets/img/6910486_preview.png' }
   ]
 
   form = new FormGroup({
@@ -42,6 +42,16 @@ export class HomeComponent implements OnInit {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     }
+  }
+
+  findProductById(idProduct) {
+    this.listOfProducts.forEach(product => {
+      if (product.id === idProduct) {
+        console.log(product);
+        
+        return product;
+      }
+    });
   }
 
 }
