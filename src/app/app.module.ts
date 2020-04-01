@@ -9,12 +9,14 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { RegistrationDialogComponent } from './home/registration-dialog/registration-dialog.component';
+import { LoginDialogComponent } from './home/login-dialog/login-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProductDetailComponent,
-    RegistrationDialogComponent
+    RegistrationDialogComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
