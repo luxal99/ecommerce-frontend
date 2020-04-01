@@ -1,0 +1,20 @@
+.header-h1 {
+    font-family: 'Fredoka One', cursive;
+}   
+.header-h3 {
+    font-family: 'Bellota Text', cursive;
+    font-size: 20px;
+    margin-top: 1em;
+}
+
+.row {
+    margin: 0 !important;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.text-div{
+    padding-top: 5em;
+}

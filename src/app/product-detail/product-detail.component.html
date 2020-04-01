@@ -1,0 +1,55 @@
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <img src="../../assets/img/e-commerce.png" style="width: 80px;" alt="" class="img-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    
+      <div class="product-container text-center">
+          <div class="row">
+              <div class="col-sm">
+                  <img src="{{product.image}}" alt="" class="img-fluid">
+              </div>
+              <mat-divider [vertical]="true"></mat-divider>
+              <div class="col-sm text-left right-col">
+                  <div class="info-div">
+                      <h1 class="product-title-h1">{{product.title}}</h1>
+                      <h1 class="product-description-h1">{{product.description}}</h1>
+                      <h1 class="product-price-h1">{{product.price}}</h1>
+
+                    <div>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Amount</mat-label>
+                            <input matInput placeholder="Amount" disabled="true" value="{{amountCounter}}">
+                          </mat-form-field>
+                        <div class="btn-div">
+                            <button class="amount-btn" (click)="count()"><mat-icon class="icon text-center">add_circle</mat-icon></button>
+                            <button class="amount-btn" (click)="decrease()"><mat-icon class="icon">remove_circle_outline</mat-icon></button>
+                        </div>
+                        <div class="order-btn-div">
+                            <button class="order-btn" mat-button>Purchase</button>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div>
