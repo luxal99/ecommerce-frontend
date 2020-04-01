@@ -4,7 +4,7 @@
       <ng-template matStepLabel>Fill out your account type</ng-template>
       <mat-form-field>
         <mat-label>User type</mat-label>
-        <mat-select formControlName="userTypeControl" (selectionChange)="hideUser()">
+        <mat-select formControlName="idUserType" (selectionChange)="hideUser()">
           <mat-option *ngFor="let userType of listOfUserType" [value]="userType">
             {{userType.title}}
           </mat-option>
@@ -70,21 +70,26 @@
 
   <mat-step>
     <ng-template matStepLabel>Login information</ng-template>
+   <form [formGroup]="accountForm">
+
     <mat-form-field appearance="outline" class="outline-input">
       <mat-label>Username</mat-label>
-      <input matInput placeholder="Username">
+      <input formControlName="username" matInput placeholder="Username">
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="outline-input">
       <mat-label>Password</mat-label>
-      <input type="password" matInput placeholder="Password">
+      <input formControlName="password" type="password" matInput placeholder="Password">
       <mat-icon matSuffix>lock</mat-icon>
     </mat-form-field>
 
+
+   </form>
+
     <div>
       <button mat-raised-button class="back-btn" matStepperPrevious>Back</button>
-      <button mat-raised-button class="register-btn" matStepperPrevious>Register</button>
+      <button mat-raised-button class="register-btn" (click)="registerUser()">Register</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

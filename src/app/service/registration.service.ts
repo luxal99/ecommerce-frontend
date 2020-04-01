@@ -9,7 +9,7 @@ export class RegistrationService {
   constructor(public http: HttpClient) { }
 
   registerClient(user) {
-    return this.http.post('/register/client', user, { responseType: 'text' })
+    return this.http.post('api/registration/client', user, { responseType: 'text' })
   }
 
   getUserType() {
