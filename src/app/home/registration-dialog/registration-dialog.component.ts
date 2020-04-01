@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { RegistrationService } from 'src/app/service/registration.service';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-registration-dialog',
   templateUrl: './registration-dialog.component.html',
@@ -8,13 +9,13 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class RegistrationDialogComponent implements OnInit {
 
-
+  listOfUserType: Array<any> = [];
   isClient = false;
 
   hideUser() {
     var userType = this.userTypeForm.get('userTypeControl').value;
     console.log(userType);
-    
+
     if (userType.idUserType === 1) {
       this.clientForm.disable();
     }
@@ -40,14 +41,25 @@ export class RegistrationDialogComponent implements OnInit {
   })
 
 
-  constructor() { }
+  constructor(public registrationService: RegistrationService) { }
 
   ngOnInit(): void {
+    this.getUserType();
   }
 
-  listOfUserType: Array<any> = [
-    { idUserType: 1, title: 'Company' },
-    { idUserType: 2, title: 'Client' }
-  ];
+  getUserType() {
+    this.registrationService.getUserType().subscribe(data => {
+      console.log(data);
+      
+      this.listOfUserType = data;
+    })
+  }
+
+
+
+
+
+
+
 
 }

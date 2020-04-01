@@ -10,6 +10,7 @@ import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { RegistrationDialogComponent } from './home/registration-dialog/registration-dialog.component';
 import { LoginDialogComponent } from './home/login-dialog/login-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,12 +24,13 @@ import { LoginDialogComponent } from './home/login-dialog/login-dialog.component
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     NgxUsefulSwiperModule,
     MaterialModule,
     BrowserAnimationsModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  providers: [],
+  providers: [HttpClientModule],
   entryComponents:[RegistrationDialogComponent,LoginDialogComponent],
   bootstrap: [AppComponent]
 })
