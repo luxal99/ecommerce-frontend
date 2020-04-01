@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     spaceBetween: 100,
     slidesPerGroup: 3,
     loop: true,
-    loopFillGroupWithBlank: true,
+    loopFillGroupWithBlank: false,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
