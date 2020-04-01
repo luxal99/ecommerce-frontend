@@ -19,6 +19,7 @@ import { RegistrationDialogComponent } from './home/registration-dialog/registra
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     NgxUsefulSwiperModule,
     MaterialModule,
