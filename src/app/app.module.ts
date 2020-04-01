@@ -29,7 +29,7 @@ import { LoginDialogComponent } from './home/login-dialog/login-dialog.component
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [],
-  entryComponents:[RegistrationDialogComponent],
+  entryComponents:[RegistrationDialogComponent,LoginDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,13 @@
+.login-btn{
+    padding-left: 4em;
+    padding-right: 4em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    color: #fff;
+    background-color: #5100B4;
+    font-size: 20px;
+}
+
+mat-form-field{
+    width: 50vh;
+}
