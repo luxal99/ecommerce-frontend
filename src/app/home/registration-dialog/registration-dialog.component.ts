@@ -11,21 +11,35 @@ export class RegistrationDialogComponent implements OnInit {
 
   isClient = false;
 
-  hideUser(){
-   
+  hideUser() {
+    var userType = this.userTypeForm.get('userTypeControl').value;
+    console.log(userType);
+    
+    if (userType.idUserType === 1) {
+      this.clientForm.disable();
+    }
+
+
   }
   userTypeForm = new FormGroup({
-    userTypeControl: new FormControl("",Validators.required)
+    userTypeControl: new FormControl("", Validators.required)
   })
 
   userAddressForm = new FormGroup({
-    city:new FormControl("",Validators.required),
-    address:new FormControl("",Validators.required)
+    city: new FormControl("", Validators.required),
+    address: new FormControl("", Validators.required)
 
 
   })
 
-  
+  clientForm = new FormGroup({
+    name: new FormControl("", Validators.required),
+    lastname: new FormControl("", Validators.required),
+    email: new FormControl("", Validators.required),
+    telephone: new FormControl("", Validators.required),
+  })
+
+
   constructor() { }
 
   ngOnInit(): void {

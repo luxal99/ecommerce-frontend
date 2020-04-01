@@ -5,7 +5,7 @@
       <mat-form-field>
         <mat-label>User type</mat-label>
         <mat-select formControlName="userTypeControl" (selectionChange)="hideUser()">
-          <mat-option *ngFor="let userType of listOfUserType" value="userType">
+          <mat-option *ngFor="let userType of listOfUserType" [value]="userType">
             {{userType.title}}
           </mat-option>
         </mat-select>
@@ -15,7 +15,7 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="">
+  <mat-step [stepControl]="userAddressForm">
     <form [formGroup]="userAddressForm">
       <ng-template matStepLabel>Fill out your address</ng-template>
       <mat-form-field>
@@ -35,29 +35,32 @@
   <mat-step id="clientStep">
     <ng-template matStepLabel>Client information</ng-template>
     <p style="font-size: 25px;">Client information</p>
-    <mat-form-field class="outline-input" appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>perm_contact_calendar</mat-icon>
-    </mat-form-field>
 
-    <mat-form-field appearance="outline" class="outline-input">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Placeholder">
-      <mat-icon matSuffix>perm_contact_calendar</mat-icon>
-    </mat-form-field>
+ <form [formGroup]="clientForm">
+  <mat-form-field class="outline-input" appearance="outline">
+    <mat-label>Outline form field</mat-label>
+    <input formControlName="name" matInput placeholder="Placeholder">
+    <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+  </mat-form-field>
 
-    <mat-form-field appearance="outline" class="outline-input">
-      <mat-label>Email</mat-label>
-      <input matInput placeholder="mail@example.com">
-      <mat-icon matSuffix>email</mat-icon>
-    </mat-form-field>
+  <mat-form-field appearance="outline" class="outline-input">
+    <mat-label>Outline form field</mat-label>
+    <input formControlName="lastname" matInput placeholder="Placeholder">
+    <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+  </mat-form-field>
 
-    <mat-form-field appearance="outline" class="outline-input">
-      <mat-label>Contact telephone</mat-label>
-      <input matInput placeholder="Example +381">
-      <mat-icon matSuffix>call</mat-icon>
-    </mat-form-field>
+  <mat-form-field appearance="outline" class="outline-input">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="mail@example.com">
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="outline-input">
+    <mat-label>Contact telephone</mat-label>
+    <input formControlName="telephone" matInput placeholder="Example +381">
+    <mat-icon matSuffix>call</mat-icon>
+  </mat-form-field>
+ </form>
 
     <div>
       <button mat-raised-button class="back-btn" matStepperPrevious>Back</button>
@@ -68,7 +71,7 @@
   <mat-step>
     <ng-template matStepLabel>Login information</ng-template>
     <mat-form-field appearance="outline" class="outline-input">
-      <mat-label>Isername</mat-label>
+      <mat-label>Username</mat-label>
       <input matInput placeholder="Username">
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
