@@ -6,12 +6,16 @@ import { UserModel, User } from '../../classes/User'
 import { Client } from 'src/app/classes/Client';
 import { UserAddress } from 'src/app/classes/UserAddress';
 import { UserType } from 'src/app/classes/UserType';
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-registration-dialog',
   templateUrl: './registration-dialog.component.html',
   styleUrls: ['./registration-dialog.component.css']
 })
 export class RegistrationDialogComponent implements OnInit {
+
+
+  constructor(public registrationService: RegistrationService,private _snackBar: MatSnackBar) { }
 
   listOfUserType: any = [];
   isClient = false;
@@ -48,8 +52,6 @@ export class RegistrationDialogComponent implements OnInit {
   })
 
 
-  constructor(public registrationService: RegistrationService) { }
-
   ngOnInit(): void {
     this.getUserType();
   }
@@ -69,35 +71,36 @@ export class RegistrationDialogComponent implements OnInit {
     var userType = new UserType();
     var user = new User();
 
+    userAddress.city = this.userAddressForm.get('city').value;
+    userAddress.address = this.userAddressForm.get('address').value;
+
     client.name = this.clientForm.get('name').value;
     client.lastname = this.clientForm.get('lastname').value;
     client.telephone = this.clientForm.get('telephone').value;
     client.email = this.clientForm.get('email').value;
-
-    userAddress.city = this.userAddressForm.get('city').value;
-    userAddress.address = this.userAddressForm.get('address').value;
+    client.idUserAddress = userAddress;
 
     user.username = this.accountForm.get('username').value;
     user.password = this.accountForm.get('password').value;
     user.idUserType = this.userTypeForm.get('idUserType').value;
 
-    var userModel = [
-      {userAddress:userAddress},
-      {client:client},
-      {user:user}
-    ]
-
-    this.registrationService.registerClient(userModel).subscribe(data=>{
-      console.log(data);
+    user.idClient = client;
+  
+    this.registrationService.registerClient(user).subscribe(data=>{
+      console.log(data['message']);
       
+      this.openSnackBar(data,"Done")
     })
-
-    console.log(userModel);
     
 
   }
 
 
+   openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
 
 
 

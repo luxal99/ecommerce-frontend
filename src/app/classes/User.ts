@@ -7,7 +7,9 @@ export class User {
     idUser?
     username
     password
-    idUserType: UserType
+    idUserType: UserType;
+    idClient:Client;
+    
 }
 
 export class UserModel {
