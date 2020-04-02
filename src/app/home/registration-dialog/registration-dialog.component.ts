@@ -21,6 +21,7 @@ export class RegistrationDialogComponent implements OnInit {
   listOfUserType: any = [];
   isClient = false;
 
+  // Funkcija koja odredjuje koje ce polja biti dostupna
   hideUser() {
     var userType = this.userTypeForm.get('idUserType').value;
     if (userType.idUserType === 1) {
@@ -33,10 +34,16 @@ export class RegistrationDialogComponent implements OnInit {
 
 
   }
+
+  // Forma za izbor tipa naloga
   userTypeForm = new FormGroup({
     idUserType: new FormControl("", Validators.required)
   })
 
+  /**
+   * Forma za upis adrese -> takodje ako se izabran
+   * tip naloga firme otvara se pristup polju za unos imena firme
+   */
   userAddressForm = new FormGroup({
     city: new FormControl("", Validators.required),
     address: new FormControl("", Validators.required),
@@ -44,7 +51,7 @@ export class RegistrationDialogComponent implements OnInit {
 
 
   })
-
+  // Forma za upis klijenata.Dostupna samo ako je izabran tip nalog klijent.
   clientForm = new FormGroup({
     name: new FormControl("", Validators.required),
     lastname: new FormControl("", Validators.required),
@@ -52,6 +59,7 @@ export class RegistrationDialogComponent implements OnInit {
     telephone: new FormControl("", Validators.required),
   })
 
+  // Forma za unos pristupnih podataka.
   accountForm = new FormGroup({
     username: new FormControl("", Validators.required),
     password: new FormControl("", Validators.required)
@@ -62,6 +70,7 @@ export class RegistrationDialogComponent implements OnInit {
     this.getUserType();
   }
 
+  // Servis koji vraca tipove naloga 
   getUserType() {
     this.registrationService.getUserType().subscribe(data => {
       console.log(data);
@@ -70,10 +79,12 @@ export class RegistrationDialogComponent implements OnInit {
     })
   }
 
+  // Servis za registraciju
   registerUser() {
 
     try {
 
+      // Kreiranje objekata za prosledjivanje
       var client = new Client();
       var userAddress = new UserAddress();
       var user = new User();
@@ -89,6 +100,12 @@ export class RegistrationDialogComponent implements OnInit {
       user.idCompany = company;
       user.idClient = client;
 
+
+      /**
+       * U zavisnosti od izabranog tipa nalog pokrece se servis
+       *    idUserType = 2 -> Servis za registraciju klijenta
+       *    idUserType = 1 => Servis za registraciju kompanije
+       */
       if (idUserType.idUserType === 2) {
 
         client.name = this.clientForm.get('name').value;
@@ -115,10 +132,6 @@ export class RegistrationDialogComponent implements OnInit {
           this.openSnackBar(data, "Done")
         })
       }
-
-
-
-
     } catch{
       this.openSnackBar("Check yours input field", "DONE")
     }
