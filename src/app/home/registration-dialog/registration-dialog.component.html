@@ -26,7 +26,12 @@
         <mat-label>Address</mat-label>
         <input matInput formControlName="address" placeholder="Ex. 1 Main St, New York, NY" required>
       </mat-form-field>
-      <div>
+      <mat-form-field>
+        <mat-hint>If you choose company account type</mat-hint>
+        <mat-label>Company</mat-label>
+        <input matInput  formControlName="company" placeholder="Ex. 1 Main St, New York, NY" >
+      </mat-form-field>
+      <div style="margin-top: 2em;">
         <button class="back-btn" mat-raised-button matStepperPrevious>Back</button>
         <button mat-raised-button class="next-btn" matStepperNext  >Next</button>
       </div>

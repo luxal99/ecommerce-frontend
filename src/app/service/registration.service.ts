@@ -12,6 +12,9 @@ export class RegistrationService {
     return this.http.post('api/registration/client', user, { responseType: 'text' })
   }
 
+  registerCompany(user){
+    return this.http.post('api/registration/company', user, { responseType: 'text' })
+  }
   getUserType() {
     return this.http.get('api/registration/getUserType', { responseType: 'json' })
   }

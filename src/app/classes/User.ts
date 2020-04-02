@@ -9,7 +9,7 @@ export class User {
     password
     idUserType: UserType;
     idClient:Client;
-    
+    idCompany:Company;
 }
 
 export class UserModel {
