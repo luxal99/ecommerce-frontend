@@ -10,6 +10,12 @@ export class User {
     idUserType: UserType;
     idClient:Client;
     idCompany:Company;
+
+    constructor(username?,password?){
+        this.username = username;
+        this.password = password;
+    }
+    
 }
 
 export class UserModel {
