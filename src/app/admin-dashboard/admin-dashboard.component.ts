@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { ProductService } from '../service/product.service';
+import { FileUploader } from 'ng2-file-upload';
 
+
+const URL = 'api/admin/upload';
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
@@ -7,9 +12,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public productService: ProductService) { }
+
+
+  public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'picture' });
 
   ngOnInit() {
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
+    //overide the onCompleteItem property of the uploader so we are 
+    //able to deal with the server response.
+    this.uploader.onCompleteItem = (picture: any, response: any, status: any, headers: any) => {
+      console.log("ImageUpload:uploaded:",  response);
+      localStorage.setItem('image',response);
+    };
+  }
+
+  productForm = new FormGroup({
+    picture: new FormControl("")
+  })
+
+  upload() {
+    var image = this.productForm.get('picture').value;
+
+    console.log(image);
+
+    this.productService.uploadPicture(image).subscribe(data => {
+      console.log(data);
+
+    })
+
   }
 
 }
