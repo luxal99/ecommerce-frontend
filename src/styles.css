@@ -2,3 +2,7 @@
 .registrationDialog{
     background-color: #FF9B28;
 }
+
+.outline-input{
+    font-size: 18px !important;
+}

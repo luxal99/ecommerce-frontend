@@ -4,6 +4,7 @@ import Swiper, { SwiperOptions } from 'swiper';
 import { ProductService } from '../service/product.service';
 import { MatDialog } from '@angular/material';
 import { RegistrationDialogComponent } from 'src/app/home/registration-dialog/registration-dialog.component'
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -28,7 +29,7 @@ export class HomeComponent implements OnInit {
     spaceBetween: 100,
     slidesPerGroup: 3,
     loop: true,
-    loopFillGroupWithBlank: true,
+    loopFillGroupWithBlank: false,
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
@@ -56,6 +57,16 @@ export class HomeComponent implements OnInit {
     });
 
   }
+
+  openLoginDialog(): void {
+    const dialogRef = this.dialog.open(LoginDialogComponent, {
+      width: 'auto',
+     backdropClass:'registrationDialog'
+    });
+
+  }
+
+  
 
 }
 
