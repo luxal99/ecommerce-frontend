@@ -18,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     ProductDetailComponent,
     RegistrationDialogComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserModule,
