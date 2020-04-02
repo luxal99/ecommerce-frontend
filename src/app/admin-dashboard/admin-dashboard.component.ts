@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ProductService } from '../service/product.service';
 import { FileUploader } from 'ng2-file-upload';
+import { AddProductDialogComponent } from './add-product-dialog/add-product-dialog.component';
+import { MatDialog } from '@angular/material';
 
 
 const URL = 'api/admin/upload';
@@ -12,9 +14,9 @@ const URL = 'api/admin/upload';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor(public productService: ProductService) { }
+  constructor(public productService: ProductService,public dialog: MatDialog) { }
 
-
+  listOfProduct:Array<any> = [];
   public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'picture' });
 
   ngOnInit() {
@@ -42,5 +44,15 @@ export class AdminDashboardComponent implements OnInit {
     })
 
   }
+
+    openAddProductDialog(): void {
+    const dialogRef = this.dialog.open(AddProductDialogComponent, {
+      width: 'auto',
+     backdropClass:'addProduct'
+    });
+
+  }
+
+  productColumns: string[] = ['code', 'title', 'amount', 'price'];
 
 }

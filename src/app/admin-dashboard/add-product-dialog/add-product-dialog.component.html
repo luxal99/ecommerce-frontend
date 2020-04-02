@@ -1,0 +1,47 @@
+<div class="text-center">
+    <div>
+        <mat-form-field class="outline-input" appearance="outline">
+            <mat-label>Outline form field</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="outline-input" appearance="outline">
+            <mat-label>Outline form field</mat-label>
+            <input matInput placeholder="Placeholder">
+            <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-form-field class="outline-input" appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="outline-input" appearance="outline">
+                <mat-label>Outline form field</mat-label>
+                <input matInput placeholder="Placeholder">
+                <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Textarea</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
+
+ 
+    <form [formGroup]="productForm">
+        <input type="file" (change)="onFileSelect($event)" style="border: 0 !important;" formControlName="picture"/>
+   
+    <!-- button to trigger the file upload when submitted -->
+    <button  class="upload-btn" mat-button (click)="uploadImage()">
+        Upload with ng-2 file uploader
+    </button>
+    </form>
+</div>

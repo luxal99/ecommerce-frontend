@@ -1,0 +1,17 @@
+mat-form-field{
+    width: 100%;
+}
+
+.row{
+    margin: 0 !important;
+}
+
+.upload-btn{
+    background-color: #FF9B28;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: 3em;
+    padding-right: 3em;
+    color: #fff;
+
+}

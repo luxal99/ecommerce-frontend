@@ -13,6 +13,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { LoginDialogComponent } from './home/login-dialog/login-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
 import {  FileSelectDirective } from 'ng2-file-upload';
+import { AddProductDialogComponent } from './admin-dashboard/add-product-dialog/add-product-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import {  FileSelectDirective } from 'ng2-file-upload';
     ProductDetailComponent,
     RegistrationDialogComponent,
     AdminDashboardComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    AddProductDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,7 @@ import {  FileSelectDirective } from 'ng2-file-upload';
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [HttpClientModule],
-  entryComponents:[RegistrationDialogComponent,LoginDialogComponent],
+  entryComponents:[RegistrationDialogComponent,LoginDialogComponent,AddProductDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
