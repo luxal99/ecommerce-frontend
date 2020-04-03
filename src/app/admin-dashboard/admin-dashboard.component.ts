@@ -16,43 +16,32 @@ export class AdminDashboardComponent implements OnInit {
 
   constructor(public productService: ProductService,public dialog: MatDialog) { }
 
-  listOfProduct:Array<any> = [];
+  listOfProduct:any = [];
   public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'picture' });
 
   ngOnInit() {
-    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
-    //overide the onCompleteItem property of the uploader so we are 
-    //able to deal with the server response.
-    this.uploader.onCompleteItem = (picture: any, response: any, status: any, headers: any) => {
-      console.log("ImageUpload:uploaded:",  response);
-      localStorage.setItem('image',response);
-    };
+    this.getAllProducts();
   }
 
   productForm = new FormGroup({
     picture: new FormControl("")
   })
 
-  upload() {
-    var image = this.productForm.get('picture').value;
-
-    console.log(image);
-
-    this.productService.uploadPicture(image).subscribe(data => {
-      console.log(data);
-
-    })
-
-  }
-
     openAddProductDialog(): void {
     const dialogRef = this.dialog.open(AddProductDialogComponent, {
       width: 'auto',
      backdropClass:'addProduct'
     });
-
   }
 
+  getAllProducts(){
+    this.productService.getAllProducts().subscribe(data=>{
+      this.listOfProduct = data;
+      console.log(this.listOfProduct[0].code);
+      
+    })
+  }
+  
   productColumns: string[] = ['code', 'title', 'amount', 'price'];
 
 }

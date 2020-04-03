@@ -5,4 +5,17 @@
     padding-bottom: 1em;
     padding-left: 5em;
     padding-right: 5em;
+    margin-bottom: 2em;
+}
+
+th{
+    background-color: #FF9B28;
+}
+
+table{
+    width: 100%;
+}
+
+.dashboard-div{
+    padding: 5em;
 }
