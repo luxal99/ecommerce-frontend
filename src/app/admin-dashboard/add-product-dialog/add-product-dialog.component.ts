@@ -31,15 +31,11 @@ export class AddProductDialogComponent implements OnInit {
     code: new FormControl("", Validators.required),
   })
 
-  uploadForm = new FormGroup({
-    picture: new FormControl()
-  })
-
 
   uploadImage() {
     const picture = new FormData();
 
-    picture.append('picture', this.uploadForm.get('picture').value);
+    picture.append('picture', this.image);
     this.productService.uploadPicture(picture).subscribe(data => {
       console.log(data);
 
@@ -56,8 +52,6 @@ export class AddProductDialogComponent implements OnInit {
   }
 
   saveProduct() {
-
-    console.log(this.productForm.get('text').value);
 
     var product = {
       "code": this.productForm.get('code').value,

@@ -2,31 +2,32 @@
     <form [formGroup]="productForm">
         <div>
             <mat-form-field class="outline-input" appearance="outline">
-                <mat-label>Outline form field</mat-label>
-                <input formControlName="code" matInput placeholder="Placeholder">
-                <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+                <mat-label>Product code</mat-label>
+                <input formControlName="code" matInput placeholder="SH124">
+                <mat-icon matSuffix>code</mat-icon>
+                <mat-hint>Must be unique</mat-hint>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field class="outline-input" appearance="outline">
-                <mat-label>Outline form field</mat-label>
-                <input formControlName="title" matInput placeholder="Placeholder">
-                <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+                <mat-label>Product title</mat-label>
+                <input formControlName="title" matInput placeholder="Cokolada">
+                <mat-icon matSuffix>input</mat-icon>
             </mat-form-field>
         </div>
         <div class="row">
             <div class="col">
                 <mat-form-field class="outline-input" appearance="outline">
-                    <mat-label>Outline form field</mat-label>
-                    <input formControlName="amount" matInput placeholder="Placeholder">
-                    <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+                    <mat-label>Price</mat-label>
+                    <input formControlName="price" matInput placeholder="Price">
+                    <mat-icon matSuffix>attach_money</mat-icon>
                 </mat-form-field>
             </div>
             <div class="col">
                 <mat-form-field class="outline-input" appearance="outline">
-                    <mat-label>Outline form field</mat-label>
-                    <input formControlName="price" matInput placeholder="Placeholder">
-                    <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+                    <mat-label>Amount</mat-label>
+                    <input formControlName="amount" matInput placeholder="Amount">
+                    <mat-icon matSuffix>exposure</mat-icon>
                 </mat-form-field>
             </div>
         </div>
@@ -36,14 +37,15 @@
             <textarea formControlName="text" matInput></textarea>
         </mat-form-field>
 
-    </form>
-
-    <form [formGroup]="uploadForm">
-        <input type="file" formControlName="picture" (change)="onFileSelect($event)" style="border: 0 !important;" />
-    </form>
+        <input type="file"  (change)="onFileSelect($event)" style="border: 0 !important;" />
+ 
 
         <!-- button to trigger the file upload when submitted -->
         <button class="upload-btn" mat-button (click)="saveProduct()">
             Upload with ng-2 file uploader
         </button>
+
+    </form>
+
+       
 </div>
