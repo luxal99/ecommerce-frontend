@@ -37,6 +37,10 @@ export class ProductService {
     return this.http.get("api/getAllProducts",{responseType:'json'}); 
   }
 
+  getProductByCompanyId(idCompany){
+    return this.http.get("api/admin/getProduct/"+idCompany,{responseType:'json'});
+  }
+
   deleteProduct(idProduct){
     return this.http.delete('api/admin/deleteProduct/'+idProduct,{responseType:'text'});
   }

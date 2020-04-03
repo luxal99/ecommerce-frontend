@@ -83,7 +83,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
   getAllProducts() {
-    this.productService.getAllProducts().subscribe(data => {
+    this.productService.getProductByCompanyId(localStorage.getItem("idCompany")).subscribe(data => {
       this.listOfProduct = data;
     })
   }
