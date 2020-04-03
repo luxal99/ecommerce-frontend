@@ -6,9 +6,9 @@ import { AddProductDialogComponent } from './add-product-dialog/add-product-dial
 import { MatDialog } from '@angular/material';
 import { ProductDetailDialogComponent } from './product-detail-dialog/product-detail-dialog.component';
 import { EditProductDialogComponent } from './edit-product-dialog/edit-product-dialog.component';
+import { LoginService } from '../service/login.service';
 
 
-const URL = 'api/admin/upload';
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
@@ -16,13 +16,31 @@ const URL = 'api/admin/upload';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor(public productService: ProductService, public dialog: MatDialog) { }
+  constructor(public productService: ProductService, public loginService: LoginService, public dialog: MatDialog) { }
 
   listOfProduct: any = [];
-  public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'picture' });
+  company = null;
+
+  companyTitle;
+  companyAddress;
+  companyCity;
+  companyID;
+
 
   ngOnInit() {
     this.getAllProducts();
+    this.findCompany();
+  }
+
+  findCompany() {
+    this.loginService.getCompanyById(localStorage.getItem("idCompany")).subscribe(data => {
+
+      this.companyID = data['idCompany']
+      this.companyTitle = data['title'];
+      this.companyAddress = data['idUserAddress']['address'];
+      this.companyCity = data['idUserAddress']['city'];
+
+    })
   }
 
   productForm = new FormGroup({
@@ -44,7 +62,7 @@ export class AdminDashboardComponent implements OnInit {
     const dialogRef = this.dialog.open(ProductDetailDialogComponent, {
       width: 'auto',
       backdropClass: 'addProduct',
-      data:{product:product}
+      data: { product: product }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -56,7 +74,7 @@ export class AdminDashboardComponent implements OnInit {
     const dialogRef = this.dialog.open(EditProductDialogComponent, {
       width: 'auto',
       backdropClass: 'addProduct',
-      data:{product:product}
+      data: { product: product }
     });
 
     dialogRef.afterClosed().subscribe(result => {

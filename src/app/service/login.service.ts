@@ -14,4 +14,8 @@ export class LoginService {
       return this.http.post("api/login",user,{responseType:'json'});
 
   }
+
+  getCompanyById(idCompany){
+    return this.http.get("api/admin/findCompany/"+idCompany,{responseType:'json'})
+  }
 }

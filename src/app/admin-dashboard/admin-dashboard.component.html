@@ -1,7 +1,17 @@
 <div class="dashboard-div">
   <div class="row text-left">
     <div class="col-sm">
-
+      <div class="row info-row">
+        <div class="col-2">
+          <img src="../../assets/img/img_542942.png" style="width: 150px;" alt="" class="img-fluid">
+        </div>
+        <div class="col">
+          <h4><span class="name-span">Name: </span><span class="info-span">{{companyTitle}}</span></h4>
+          <h4><span class="name-span">Id: </span><span class="info-span">{{companyID}}</span></h4>
+          <h4><span class="name-span">City: </span><span class="info-span">{{companyCity}}</span></h4>
+          <h4><span class="name-span">Address: </span><span class="info-span">{{companyAddress}}</span></h4>
+        </div>
+      </div>
       <div class="text-left">
         <button mat-button class="add-product-btn" (click)="openAddProductDialog()">Add product</button>
       </div>
