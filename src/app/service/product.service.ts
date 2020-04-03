@@ -40,6 +40,10 @@ export class ProductService {
   deleteProduct(idProduct){
     return this.http.delete('api/admin/deleteProduct/'+idProduct,{responseType:'text'});
   }
+
+  updateProduct(product){
+    return this.http.put('api/admin/updateProduct',product,{responseType:'json'});
+  }
 }
 
 

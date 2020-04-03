@@ -4,6 +4,8 @@ import { ProductService } from '../service/product.service';
 import { FileUploader } from 'ng2-file-upload';
 import { AddProductDialogComponent } from './add-product-dialog/add-product-dialog.component';
 import { MatDialog } from '@angular/material';
+import { ProductDetailDialogComponent } from './product-detail-dialog/product-detail-dialog.component';
+import { EditProductDialogComponent } from './edit-product-dialog/edit-product-dialog.component';
 
 
 const URL = 'api/admin/upload';
@@ -14,9 +16,9 @@ const URL = 'api/admin/upload';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor(public productService: ProductService,public dialog: MatDialog) { }
+  constructor(public productService: ProductService, public dialog: MatDialog) { }
 
-  listOfProduct:any = [];
+  listOfProduct: any = [];
   public uploader: FileUploader = new FileUploader({ url: URL, itemAlias: 'picture' });
 
   ngOnInit() {
@@ -27,10 +29,10 @@ export class AdminDashboardComponent implements OnInit {
     picture: new FormControl("")
   })
 
-    openAddProductDialog(): void {
+  openAddProductDialog(): void {
     const dialogRef = this.dialog.open(AddProductDialogComponent, {
       width: 'auto',
-     backdropClass:'addProduct'
+      backdropClass: 'addProduct'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -38,21 +40,46 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  getAllProducts(){
-    this.productService.getAllProducts().subscribe(data=>{
+  openProductDetailDialog(product): void {
+    const dialogRef = this.dialog.open(ProductDetailDialogComponent, {
+      width: 'auto',
+      backdropClass: 'addProduct',
+      data:{product:product}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllProducts()
+    });
+  }
+
+  openEditProductDialog(product): void {
+    const dialogRef = this.dialog.open(EditProductDialogComponent, {
+      width: 'auto',
+      backdropClass: 'addProduct',
+      data:{product:product}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllProducts()
+    });
+  }
+
+  getAllProducts() {
+    this.productService.getAllProducts().subscribe(data => {
       this.listOfProduct = data;
     })
   }
 
-  deleteProduct(idProduct){
-    this.productService.deleteProduct(idProduct).subscribe(data=>{
+
+  deleteProduct(idProduct) {
+    this.productService.deleteProduct(idProduct).subscribe(data => {
       console.log(data);
 
       this.getAllProducts();
-      
+
     })
   }
 
-  productColumns: string[] = ['code', 'title', 'amount', 'price','option'];
+  productColumns: string[] = ['code', 'title', 'amount', 'price', 'option'];
 
 }
