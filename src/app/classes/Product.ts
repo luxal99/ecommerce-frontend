@@ -1,8 +1,10 @@
 export class Product {
     idProduct?;
     title?;
+    code?
+    idCompany?
     amount?;
-    description?
+    text?
     price?;
-    image?;
+    picture?;
 }

@@ -33,8 +33,8 @@ export class LoginDialogComponent implements OnInit {
         if (data['idClient'] !=null) {
           
         }else if (data['idCompany'] != null) {
-          console.log('Company');
-          
+
+          localStorage.setItem('idCompany',data['idCompany']['idCompany']);
           this.router.navigate(['/admin']);
         }
 
