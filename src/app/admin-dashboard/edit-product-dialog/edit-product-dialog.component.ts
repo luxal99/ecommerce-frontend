@@ -74,6 +74,7 @@ export class EditProductDialogComponent implements OnInit {
     }else{
       picture = this.data.product.picture;
     }
+    
 
     var product = new Product(code, title, price, amount, text, picture, idCompany);
     product.idProduct = this.data.product.idProduct;
