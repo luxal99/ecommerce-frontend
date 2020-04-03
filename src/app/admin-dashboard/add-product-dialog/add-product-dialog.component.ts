@@ -4,6 +4,9 @@ import { ProductService } from 'src/app/service/product.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Company } from 'src/app/classes/Company';
 import { Product } from '../../classes/Product'
+import { error } from 'protractor';
+import { async } from '@angular/core/testing';
+import { MatSnackBar } from '@angular/material';
 
 
 const URL = 'api/admin/upload';
@@ -15,7 +18,7 @@ const URL = 'api/admin/upload';
 })
 export class AddProductDialogComponent implements OnInit {
 
-  constructor(public productService: ProductService) { }
+  constructor(public productService: ProductService, private _snackBar: MatSnackBar) { }
 
   image;
 
@@ -29,6 +32,7 @@ export class AddProductDialogComponent implements OnInit {
     amount: new FormControl("", Validators.required),
     price: new FormControl("", Validators.required),
     code: new FormControl("", Validators.required),
+    picture:new FormControl("",Validators.required)
   })
 
 
@@ -51,9 +55,9 @@ export class AddProductDialogComponent implements OnInit {
     }
   }
 
-  saveProduct() {
+  async saveProduct() {
 
-  
+
     var code = this.productForm.get('code').value;
     var title = this.productForm.get('title').value;
     var text = this.productForm.get('text').value;
@@ -63,17 +67,36 @@ export class AddProductDialogComponent implements OnInit {
     var picture = 'assets/img/' + this.image.name;
     var idCompany = new Company(localStorage.getItem("idCompany"));
 
-    var product = new Product(code,title,price,amount,text,picture,idCompany);
+    var product = new Product(code, title, price, amount, text, picture, idCompany);
 
     const image = new FormData();
 
     image.append('image', this.image);
-    this.productService.uploadPicture(image).subscribe(data => {
+
+
+    await this.productService.saveProduct(product).subscribe(data => {
+      console.log(data);
+
+      if (data != null) {
+
+        this.productService.uploadPicture(image).subscribe(data => {
+
+        })
+      } else {
+        this.openSnackBar("Can not save", "DONE")
+      }
     })
 
-    this.productService.saveProduct(product).subscribe(data => {
-    })
+
   }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
+
+
 
 
 }

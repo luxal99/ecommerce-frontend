@@ -32,16 +32,27 @@ export class AdminDashboardComponent implements OnInit {
       width: 'auto',
      backdropClass:'addProduct'
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllProducts()
+    });
   }
 
   getAllProducts(){
     this.productService.getAllProducts().subscribe(data=>{
       this.listOfProduct = data;
-      console.log(this.listOfProduct[0].code);
+    })
+  }
+
+  deleteProduct(idProduct){
+    this.productService.deleteProduct(idProduct).subscribe(data=>{
+      console.log(data);
+
+      this.getAllProducts();
       
     })
   }
-  
-  productColumns: string[] = ['code', 'title', 'amount', 'price'];
+
+  productColumns: string[] = ['code', 'title', 'amount', 'price','option'];
 
 }

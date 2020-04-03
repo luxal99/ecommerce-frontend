@@ -31,10 +31,14 @@ export class ProductService {
   }
 
   saveProduct(product){
-    return this.http.post("api/admin/saveProduct",product,{responseType:'text'});
+    return this.http.post("api/admin/saveProduct",product,{responseType:'json'});
   }
   getAllProducts(){
     return this.http.get("api/getAllProducts",{responseType:'json'}); 
+  }
+
+  deleteProduct(idProduct){
+    return this.http.delete('api/admin/deleteProduct/'+idProduct,{responseType:'text'});
   }
 }
 
