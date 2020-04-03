@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   });
 
   ngOnInit(): void {
-this.getAllProducts();
+this.getAllProduct();
   }
 
   config: SwiperOptions = {
@@ -66,12 +66,12 @@ this.getAllProducts();
 
   }
 
-  getAllProducts() {
+  getAllProduct() {
     this.productService.getAllProducts().subscribe(data => {
       this.listOfProducts = data;
     })
+    
   }
-
 
 
 }
