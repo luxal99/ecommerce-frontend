@@ -66,7 +66,9 @@ export class ProductService {
   saveProduct(product){
     return this.http.post("api/admin/saveProduct",product,{responseType:'text'});
   }
-
+  getAllProducts(){
+    return this.http.get("api/getAllProducts",{responseType:'json'}); 
+  }
 }
 
 
