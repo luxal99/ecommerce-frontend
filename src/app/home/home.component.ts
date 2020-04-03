@@ -14,14 +14,14 @@ export class HomeComponent implements OnInit {
 
   constructor(public productService: ProductService, public dialog: MatDialog) { }
 
-  listOfProducts: Array<any>;
+  listOfProducts: any = [];
 
   form = new FormGroup({
     name: new FormControl()
   });
 
   ngOnInit(): void {
-    this.listOfProducts = this.productService.getProduct();
+this.getAllProducts();
   }
 
   config: SwiperOptions = {
@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
   openRegistrationDialog(): void {
     const dialogRef = this.dialog.open(RegistrationDialogComponent, {
       width: 'auto',
-     backdropClass:'registrationDialog'
+      backdropClass: 'registrationDialog'
     });
 
   }
@@ -61,12 +61,18 @@ export class HomeComponent implements OnInit {
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
       width: 'auto',
-     backdropClass:'registrationDialog'
+      backdropClass: 'registrationDialog'
     });
 
   }
 
-  
+  getAllProducts() {
+    this.productService.getAllProducts().subscribe(data => {
+      this.listOfProducts = data;
+    })
+  }
+
+
 
 }
 
