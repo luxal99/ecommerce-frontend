@@ -52,27 +52,38 @@ export class AddProductDialogComponent implements OnInit {
   }
 
   saveProduct() {
+    var code = this.productForm.get('code').value;
+    var title = this.productForm.get('title').value;
+    var text = this.productForm.get('text').value;
+    var price = this.productForm.get('price').value;
+    var amount = this.productForm.get('amount').value;
+    var text = this.productForm.get('text').value;
+    var picture = 'assets/img/' + this.image.name;
+    var idCompany = new Company(localStorage.getItem("idCompany"));
 
-    var product = {
-      "code": this.productForm.get('code').value,
-      "title": this.productForm.get('title').value,
-      "text": this.productForm.get('text').value,
-      "amount": this.productForm.get('amount').value,
-      "price": this.productForm.get('price').value,
-      "picture": 'assets/img' + this.image.name,
-      "idCompany": { "idCompany": localStorage.getItem("idCompany") }
-    }
+    var product = new Product(code,title,price,amount,text,picture,idCompany);
+    // var product = {
+    //   "code": this.productForm.get('code').value,
+    //   "title": this.productForm.get('title').value,
+    //   "text": this.productForm.get('text').value,
+    //   "amount": this.productForm.get('amount').value,
+    //   "price": this.productForm.get('price').value,
+    //   "picture": 'assets/img' + this.image.name,
+    //   "idCompany": { "idCompany": localStorage.getItem("idCompany") }
+    // }
 
-    const picture = new FormData();
+    const image = new FormData();
 
-     picture.append('picture', this.image);
-     this.productService.uploadPicture(picture).subscribe(data => {
+    image.append('image', this.image);
+    this.productService.uploadPicture(image).subscribe(data => {
 
 
-     })
+    })
+    console.log(product);
+    
 
     this.productService.saveProduct(product).subscribe(data => {
-      console.log(data);
+      console.log(data);  
 
     })
   }
