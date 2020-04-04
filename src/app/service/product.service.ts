@@ -20,33 +20,19 @@ export class ProductService {
   }
 
   addToCart(product) {
-
-    if (this.cart.length===0) {
-      this.cart.push(product);
-    }else{
-      this.cart.forEach(element => {
-        if (element.idProduct === product.idProduct) {
-          element.orderAmount++;
-          
-        }else{
-         this.cart.push(product);
-   
-        }
-       });
-    }
-
-
-  
-
+    this.cart.push(product)
   }
 
   getCart() {
-    return this.cart;
+    var set = [... new Set(this.cart)]
+    return set;
   }
 
   sum() {
     this.total = 0;
-    this.cart.forEach(element => {
+    var set = [... new Set(this.cart)]
+    
+    set.forEach(element => {
       this.total += (element.price) * (element.orderAmount);
       console.log(this.total);
 
