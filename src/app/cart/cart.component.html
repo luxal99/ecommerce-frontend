@@ -32,7 +32,7 @@
         </div>
         <div class="col-9 text-left">
           <div class="text-right">
-            <button mat-button>
+            <button mat-button (click)="deleteProduct(product )">
               <mat-icon>close</mat-icon>
             </button>
           </div>
@@ -40,10 +40,13 @@
           <h5>{{product.text}}</h5>
           <h5><span style="font-weight: bold;">Amount</span>: {{product.orderAmount}}</h5>
           <div class="text-right">
-            <mat-form-field appearance="outline">
-              <mat-label>Amount</mat-label>
-              <input matInput placeholder="Amount" disabled="true" value="{{amountCounter}}">
-            </mat-form-field>
+            <form [formGroup]="amountForm">
+
+              <mat-form-field appearance="outline">
+                <mat-label>Amount</mat-label>
+                <input matInput formControlName="orderAmount" placeholder="Amount" disabled="true" value="{{product.orderAmount}}">
+              </mat-form-field>
+            </form>
             <button class="amount-btn" (click)="count(product)" mat-button>
               <mat-icon class="icon text-center">add_circle</mat-icon>
             </button>

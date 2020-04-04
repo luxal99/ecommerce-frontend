@@ -5,7 +5,7 @@ import { ProductService } from '../service/product.service';
 import { MatDialog } from '@angular/material';
 import { RegistrationDialogComponent } from 'src/app/home/registration-dialog/registration-dialog.component'
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
-import { ProductOrder } from '../classes/Product';
+import { Product, ProductOrder } from '../classes/Product';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -76,10 +76,11 @@ this.getAllProduct();
     
   }
 
-  addToCart(product:ProductOrder){
-    product.orderAmount = 1;
-    this.cartSize++
+  addToCart(product:Product){
+    this.cartSize++;
     this.productService.addToCart(product);
+    
+    
   }
 
 

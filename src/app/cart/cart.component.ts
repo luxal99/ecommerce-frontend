@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/product.service';
 import { MatSnackBar } from '@angular/material';
+import { FormGroup, FormControl } from '@angular/forms';
+import { Product, ProductOrder } from '../classes/Product';
 
 @Component({
   selector: 'app-cart',
@@ -9,43 +11,56 @@ import { MatSnackBar } from '@angular/material';
 })
 export class CartComponent implements OnInit {
 
-  cartList:any=[];
-  amountCounter = 0;
+  cartList: any = [];
   total = 0;
 
-  constructor(public productService:ProductService,private _snackBar: MatSnackBar ) { }
+  amountForm = new FormGroup({
+    orderAmount: new FormControl(1)
+  })
+
+  constructor(public productService: ProductService, private _snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getCart();
     this.getTotal();
   }
 
-  getCart(){
+  getCart() {
     this.cartList = [];
     this.cartList = this.productService.getCart();
-    console.log(this.cartList);
   }
 
-  getTotal(){
-    this.total =this.productService.sum();
+  getTotal() {
+    this.total = this.productService.sum();
   }
 
   count(product) {
-    if (this.amountCounter === product.amount) {
+    console.log(product);
+    
+    if (product.orderAmount === product.amount) {
       this.openSnackBar(new Error("Max amount").message, "DONE")
     } else {
 
-      this.amountCounter++;
+      
+     product.orderAmount++;
+      this.productService.increaseValue(product);
+    
+      this.getTotal();
     }
   }
 
-  decrease() {
-    if (this.amountCounter === 0) {
-      this.openSnackBar(new Error("Amount can not be less than zero").message, "DONE")
-    } else {
+  // decrease(product) {
+  //   if (this.amountCounter === 1) {
+  //     this.openSnackBar(new Error("Amount can not be less than one").message, "DONE")
+  //   } else {
 
-      this.amountCounter--;
-    }
+  //   }
+  // }
+
+  deleteProduct(product) {
+    this.productService.deleteProduct(product);
+    this.getCart();
+    this.getTotal();
   }
 
   openSnackBar(message: string, action: string) {
