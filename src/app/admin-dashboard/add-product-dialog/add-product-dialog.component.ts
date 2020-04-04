@@ -23,7 +23,6 @@ export class AddProductDialogComponent implements OnInit {
   image;
 
   ngOnInit(): void {
-
   }
 
   productForm = new FormGroup({
@@ -95,6 +94,8 @@ export class AddProductDialogComponent implements OnInit {
       duration: 2000,
     });
   }
+
+
 
 
 

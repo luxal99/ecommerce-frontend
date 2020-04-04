@@ -18,6 +18,7 @@ export class AdminDashboardComponent implements OnInit {
 
   constructor(public productService: ProductService, public loginService: LoginService, public dialog: MatDialog) { }
 
+  //  Lista proizvoda za nasu kompaniju
   listOfProduct: any = [];
   company = null;
 
@@ -32,6 +33,7 @@ export class AdminDashboardComponent implements OnInit {
     this.findCompany();
   }
 
+  // Servis koji vraca podatke u kompaniji
   findCompany() {
     this.loginService.getCompanyById(localStorage.getItem("idCompany")).subscribe(data => {
 
@@ -43,10 +45,7 @@ export class AdminDashboardComponent implements OnInit {
     })
   }
 
-  productForm = new FormGroup({
-    picture: new FormControl("")
-  })
-
+  // Otvaranje dijaloga za dodavanje proizvoda
   openAddProductDialog(): void {
     const dialogRef = this.dialog.open(AddProductDialogComponent, {
       width: 'auto',
@@ -58,6 +57,7 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
+  // Otvaranje dijalog za preview proizvoda
   openProductDetailDialog(product): void {
     const dialogRef = this.dialog.open(ProductDetailDialogComponent, {
       width: 'auto',
@@ -70,6 +70,7 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
+  // Otvranje dijaloga za izmenu proizvoda
   openEditProductDialog(product): void {
     const dialogRef = this.dialog.open(EditProductDialogComponent, {
       width: 'auto',
@@ -82,6 +83,11 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
+   /**
+   * Ukoliko smo se ulogovali uspesno,nas id ce biti 
+   * prosledje servisu koji u zavisnosti od njega
+   * pronalazi sve proizvode nase kompanije
+   */
   getAllProducts() {
     this.productService.getProductByCompanyId(localStorage.getItem("idCompany")).subscribe(data => {
       this.listOfProduct = data;
@@ -89,6 +95,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
 
+  // Servis za brisanje proizvoda
   deleteProduct(idProduct) {
     this.productService.deleteProduct(idProduct).subscribe(data => {
       console.log(data);
@@ -97,6 +104,8 @@ export class AdminDashboardComponent implements OnInit {
 
     })
   }
+
+
 
   productColumns: string[] = ['code', 'title', 'amount', 'price', 'option'];
 
