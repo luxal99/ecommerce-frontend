@@ -6,3 +6,8 @@ export class Product {
     price?;
     image?;
 }
+
+export class ProductOrder {
+    product: Product;
+    orderAmount;
+}
