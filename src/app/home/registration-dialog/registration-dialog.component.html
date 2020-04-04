@@ -1,40 +1,100 @@
 <mat-horizontal-stepper [linear]="true" #stepper>
-  <mat-step [stepControl]="">
-    <form >
-      <ng-template matStepLabel>Fill out your name</ng-template>
+  <mat-step [stepControl]="userTypeForm">
+    <form [formGroup]="userTypeForm">
+      <ng-template matStepLabel>Fill out your account type</ng-template>
       <mat-form-field>
-        <mat-label>Favorite food</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let userType of listOfUserType" value="userType">
+        <mat-label>User type</mat-label>
+        <mat-select formControlName="idUserType" (selectionChange)="hideUser()">
+          <mat-option *ngFor="let userType of listOfUserType" [value]="userType">
             {{userType.title}}
           </mat-option>
         </mat-select>
       </mat-form-field>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-raised-button class="next-btn" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="">
-    <form >
+  <mat-step [stepControl]="userAddressForm">
+    <form [formGroup]="userAddressForm">
       <ng-template matStepLabel>Fill out your address</ng-template>
       <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput  placeholder="Ex. 1 Main St, New York, NY"
-               required>
+        <mat-label>City</mat-label>
+        <input matInput formControlName="city" placeholder="Ex. 1 Main St, New York, NY" required>
       </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address" placeholder="Ex. 1 Main St, New York, NY" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-hint>If you choose company account type</mat-hint>
+        <mat-label>Company</mat-label>
+        <input matInput  formControlName="company" placeholder="Ex. 1 Main St, New York, NY" >
+      </mat-form-field>
+      <div style="margin-top: 2em;">
+        <button class="back-btn" mat-raised-button matStepperPrevious>Back</button>
+        <button mat-raised-button class="next-btn" matStepperNext  >Next</button>
       </div>
     </form>
   </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
+  <mat-step id="clientStep">
+    <ng-template matStepLabel>Client information</ng-template>
+    <p style="font-size: 25px;">Client information</p>
+
+ <form [formGroup]="clientForm">
+  <mat-form-field class="outline-input" appearance="outline">
+    <mat-label>Outline form field</mat-label>
+    <input formControlName="name" matInput placeholder="Placeholder">
+    <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="outline-input">
+    <mat-label>Outline form field</mat-label>
+    <input formControlName="lastname" matInput placeholder="Placeholder">
+    <mat-icon matSuffix>perm_contact_calendar</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="outline-input">
+    <mat-label>Email</mat-label>
+    <input formControlName="email" matInput placeholder="mail@example.com">
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="outline-input">
+    <mat-label>Contact telephone</mat-label>
+    <input formControlName="telephone" matInput placeholder="Example +381">
+    <mat-icon matSuffix>call</mat-icon>
+  </mat-form-field>
+ </form>
+
     <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-raised-button class="back-btn" matStepperPrevious>Back</button>
+      <button mat-raised-button class="next-btn" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Login information</ng-template>
+   <form [formGroup]="accountForm">
+
+    <mat-form-field appearance="outline" class="outline-input">
+      <mat-label>Username</mat-label>
+      <input formControlName="username" matInput placeholder="Username">
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="outline-input">
+      <mat-label>Password</mat-label>
+      <input formControlName="password" type="password" matInput placeholder="Password">
+      <mat-icon matSuffix>lock</mat-icon>
+    </mat-form-field>
+
+
+   </form>
+
+    <div>
+      <button mat-raised-button class="back-btn" matStepperPrevious>Back</button>
+      <button mat-raised-button class="register-btn" (click)="registerUser()">Register</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

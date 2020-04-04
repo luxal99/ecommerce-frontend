@@ -14,7 +14,7 @@
             <a class="nav-link" (click)="openRegistrationDialog()">Registration</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <a class="nav-link" (click)="openLoginDialog()">Login</a>
           </li>
           
         </ul>
@@ -48,7 +48,7 @@
       
           <div class="swiper-slide slider" *ngFor="let product of listOfProducts">
             <div>
-              <img style="width: 300px;" src="{{product.image}}"/>
+              <img style="width: 300px;" src="{{product.picture}}"/>
             <h3 class="product-title-h3">{{product.title}}</h3>
             <h3 class="product-price-h3">{{product.price}}</h3>   
             <div>

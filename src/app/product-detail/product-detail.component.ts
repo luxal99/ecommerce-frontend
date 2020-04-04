@@ -11,17 +11,29 @@ import { MatSnackBar } from '@angular/material';
 })
 export class ProductDetailComponent implements OnInit {
 
-  product: Product;
+  listOfProduct: any = [];
   amountCounter = 0;
+  product;
+
   constructor(private route: ActivatedRoute, private productService: ProductService, private _snackBar: MatSnackBar) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.findProduct();
   }
 
   findProduct() {
     this.route.params.subscribe(params => {
-      this.product = this.productService.findProductById(params.id);
+      this.productService.getAllProducts().subscribe(data => {
+        this.listOfProduct = data;
+        this.listOfProduct.forEach(element => {
+          if (element.idProduct == params.id) {
+            console.log(element);
+            
+            this.product = element
+          }
+        });
+        
+      })
     })
 
   }
@@ -49,4 +61,5 @@ export class ProductDetailComponent implements OnInit {
       duration: 2000,
     });
   }
+
 }
