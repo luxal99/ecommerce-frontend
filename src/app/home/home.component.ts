@@ -5,6 +5,7 @@ import { ProductService } from '../service/product.service';
 import { MatDialog } from '@angular/material';
 import { RegistrationDialogComponent } from 'src/app/home/registration-dialog/registration-dialog.component'
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { Product, ProductOrder } from '../classes/Product';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,6 +16,8 @@ export class HomeComponent implements OnInit {
   constructor(public productService: ProductService, public dialog: MatDialog) { }
 
   listOfProducts: any = [];
+
+  cartSize = 0;
 
   form = new FormGroup({
     name: new FormControl()
@@ -71,6 +74,13 @@ this.getAllProduct();
       this.listOfProducts = data;
     })
     
+  }
+
+  addToCart(product:Product){
+    product.orderAmount = 1;
+    this.cartSize++;
+    this.productService.addToCart(product);
+
   }
 
 

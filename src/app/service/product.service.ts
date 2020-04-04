@@ -8,10 +8,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
 
-  constructor(public http: HttpClient) { }
-
+  total = 0;
   private cart: Array<any> = [];
- 
+  private set = new Set(this.cart);
+
+  constructor(public http: HttpClient) { }
 
   uploadPicture(picutre) {
     return this.http.post("api/admin/upload", picutre, { responseType: 'text' });
@@ -36,17 +37,35 @@ export class ProductService {
     return this.http.put('api/admin/updateProduct', product, { responseType: 'json' });
   }
 
+  getCart() {
+    return this.set;
+  }
+
+  sum() {
+    this.total = 0;
+    this.set.forEach(element => {
+
+
+      this.total += (element.price) * (element.orderAmount);
+    });
+
+    return this.total;
+  }
+
+  deleteFromCart(product) {
+    this.set.delete(product);
+  }
+
+
   addToCart(product: Object) {
     console.log(product);
-    
-    this.cart.push(product)
 
-    
+    this.set.add(product)
+
+
   }
 
-  getCart(){
-    return this.cart;
-  }
+
 }
 
 

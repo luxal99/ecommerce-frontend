@@ -28,4 +28,8 @@ export class LoginService implements CanActivate {
   getCompanyById(idCompany) {
     return this.http.get("api/admin/findCompany/" + idCompany, { responseType: 'json' })
   }
+
+  getClientById(idClient){
+    return this.http.get("api/client/getClient/"+idClient,{responseType:'json'});
+  }
 }

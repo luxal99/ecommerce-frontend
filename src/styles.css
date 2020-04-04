@@ -11,3 +11,7 @@
     background-color: rgba(0, 0, 0, 0.109);
 }
 
+.mat-icon{
+    width: auto !important;
+    height: auto !important;
+}

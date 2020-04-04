@@ -31,6 +31,7 @@ export class LoginDialogComponent implements OnInit {
     this.loginService.login(user).subscribe(data=>{
       if(data!=null){
         if (data['idClient'] !=null) {
+          localStorage.setItem('idClient',data['idClient']['idClient'])
           
         }else if (data['idCompany'] != null) {
 
