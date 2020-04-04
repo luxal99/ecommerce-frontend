@@ -5,6 +5,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Product, ProductOrder } from '../classes/Product';
 import { LoginDialogComponent } from '../home/login-dialog/login-dialog.component';
 import { LoginService } from '../service/login.service';
+import { Order } from "../classes/Order";
 
 @Component({
   selector: 'app-cart',
@@ -16,6 +17,7 @@ export class CartComponent implements OnInit {
   cartList: any = [];
   total = 0;
 
+  client;
   clientName;
   clientLastname;
   clientCity;
@@ -28,7 +30,7 @@ export class CartComponent implements OnInit {
     orderAmount: new FormControl(1)
   })
 
-  constructor(public productService: ProductService,public loginService:LoginService, private _snackBar: MatSnackBar,public dialog: MatDialog) { }
+  constructor(public productService: ProductService, public loginService: LoginService, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getCart();
@@ -39,8 +41,8 @@ export class CartComponent implements OnInit {
   findClient() {
     this.loginService.getClientById(localStorage.getItem("idClient")).subscribe(data => {
 
-      console.log(data);
-      
+      this.client = data;
+
       this.clientName = data['name'];
       this.clientLastname = data['lastname'];
       this.clientMail = data['mail'];
@@ -63,22 +65,22 @@ export class CartComponent implements OnInit {
 
   count(product) {
     console.log(product);
-    
+
     if (product.orderAmount === product.amount) {
       this.openSnackBar(new Error("Max amount").message, "DONE")
     } else {
-     product.orderAmount++;
+      product.orderAmount++;
       this.getTotal();
     }
   }
 
-   decrease(product) {
-     if (product.orderAmount === 1) {
-       this.openSnackBar(new Error("Amount can not be less than one").message, "DONE")
-     } else {
-        product.orderAmount--;
-     }
-   }
+  decrease(product) {
+    if (product.orderAmount === 1) {
+      this.openSnackBar(new Error("Amount can not be less than one").message, "DONE")
+    } else {
+      product.orderAmount--;
+    }
+  }
 
   deleteProduct(product) {
     this.productService.deleteFromCart(product);
@@ -100,11 +102,19 @@ export class CartComponent implements OnInit {
 
   }
 
-  purchase(){
+  purchase() {
 
-    if (localStorage.getItem("idClient")!=null) {
+    if (localStorage.getItem("idClient") != null) {
+
+      var order = new Order();
+      order.client = this.client;
+      order.total = this.total;
+      order.productList = this.cartList;
+
+      console.log(order);
       
-    }else{
+
+    } else {
       this.openLoginDialog();
     }
   }
