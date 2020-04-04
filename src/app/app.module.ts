@@ -9,15 +9,25 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { RegistrationDialogComponent } from './home/registration-dialog/registration-dialog.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { LoginDialogComponent } from './home/login-dialog/login-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import {  FileSelectDirective } from 'ng2-file-upload';
+import { AddProductDialogComponent } from './admin-dashboard/add-product-dialog/add-product-dialog.component';
+import { ProductDetailDialogComponent } from './admin-dashboard/product-detail-dialog/product-detail-dialog.component';
+import { EditProductDialogComponent } from './admin-dashboard/edit-product-dialog/edit-product-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
+    FileSelectDirective,
     HomeComponent,
     ProductDetailComponent,
     RegistrationDialogComponent,
-    LoginDialogComponent
+    AdminDashboardComponent,
+    LoginDialogComponent,
+    AddProductDialogComponent,
+    ProductDetailDialogComponent,
+    EditProductDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [HttpClientModule],
-  entryComponents:[RegistrationDialogComponent,LoginDialogComponent],
+  entryComponents:[RegistrationDialogComponent,EditProductDialogComponent, ProductDetailDialogComponent,LoginDialogComponent,AddProductDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

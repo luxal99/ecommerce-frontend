@@ -6,3 +6,8 @@
 .outline-input{
     font-size: 18px !important;
 }
+.addProduct{
+    backdrop-filter: blur(5px); 
+    background-color: rgba(0, 0, 0, 0.109);
+}
+
