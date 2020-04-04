@@ -55,7 +55,7 @@ export class RegistrationDialogComponent implements OnInit {
   clientForm = new FormGroup({
     name: new FormControl("", Validators.required),
     lastname: new FormControl("", Validators.required),
-    email: new FormControl("", Validators.required),
+    mail: new FormControl("", Validators.required),
     telephone: new FormControl("", Validators.required),
   })
 
@@ -111,7 +111,7 @@ export class RegistrationDialogComponent implements OnInit {
         client.name = this.clientForm.get('name').value;
         client.lastname = this.clientForm.get('lastname').value;
         client.telephone = this.clientForm.get('telephone').value;
-        client.email = this.clientForm.get('email').value;
+        client.mail = this.clientForm.get('mail').value;
         client.idUserAddress = userAddress;
 
         this.registrationService.registerClient(user).subscribe(data => {

@@ -5,6 +5,6 @@ export class Client {
     name
     lastname
     telephone
-    email
+    mail
     idUserAddress: UserAddress
 }
