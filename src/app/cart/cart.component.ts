@@ -49,13 +49,13 @@ export class CartComponent implements OnInit {
     }
   }
 
-  // decrease(product) {
-  //   if (this.amountCounter === 1) {
-  //     this.openSnackBar(new Error("Amount can not be less than one").message, "DONE")
-  //   } else {
-
-  //   }
-  // }
+   decrease(product) {
+     if (product.orderAmount === 1) {
+       this.openSnackBar(new Error("Amount can not be less than one").message, "DONE")
+     } else {
+        product.orderAmount--;
+     }
+   }
 
   deleteProduct(product) {
     this.productService.deleteProduct(product);

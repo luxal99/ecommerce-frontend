@@ -77,10 +77,10 @@ this.getAllProduct();
   }
 
   addToCart(product:Product){
+    product.orderAmount = 1;
     this.cartSize++;
     this.productService.addToCart(product);
-    
-    
+
   }
 
 
