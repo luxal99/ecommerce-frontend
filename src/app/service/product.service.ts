@@ -11,16 +11,7 @@ export class ProductService {
   constructor(public http: HttpClient) { }
 
   private cart: Array<any> = [];
-
-
-
-  public getProduct(): Array<Product> {
-    return this.products
-  }
-
-  private products: Array<Product> = [
-
-  }
+ 
 
   uploadPicture(picutre) {
     return this.http.post("api/admin/upload", picutre, { responseType: 'text' });
