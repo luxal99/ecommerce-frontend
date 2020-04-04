@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../service/product.service';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Product, ProductOrder } from '../classes/Product';
+import { LoginDialogComponent } from '../home/login-dialog/login-dialog.component';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +19,7 @@ export class CartComponent implements OnInit {
     orderAmount: new FormControl(1)
   })
 
-  constructor(public productService: ProductService, private _snackBar: MatSnackBar) { }
+  constructor(public productService: ProductService, private _snackBar: MatSnackBar,public dialog: MatDialog) { }
 
   ngOnInit() {
     this.getCart();
@@ -40,11 +41,7 @@ export class CartComponent implements OnInit {
     if (product.orderAmount === product.amount) {
       this.openSnackBar(new Error("Max amount").message, "DONE")
     } else {
-
-      
      product.orderAmount++;
-      this.productService.increaseValue(product);
-    
       this.getTotal();
     }
   }
@@ -67,6 +64,23 @@ export class CartComponent implements OnInit {
     this._snackBar.open(message, action, {
       duration: 2000,
     });
+  }
+
+  openLoginDialog(): void {
+    const dialogRef = this.dialog.open(LoginDialogComponent, {
+      width: 'auto',
+      backdropClass: 'registrationDialog'
+    });
+
+  }
+
+  purchase(){
+
+    if (localStorage.getItem("idClient")!=null) {
+      
+    }else{
+      this.openLoginDialog();
+    }
   }
 
 

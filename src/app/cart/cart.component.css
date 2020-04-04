@@ -28,3 +28,13 @@ mat-form-field{
     color: #4BB543;
     font-weight: bold;
 }
+
+.order-btn{
+    background-color: #FF9B28;
+    color: #fff;
+    padding-left: 4em;
+    padding-right: 4em;
+    font-size: 18px;
+    padding-top: .3em;
+    padding-bottom: .3em;
+}

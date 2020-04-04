@@ -23,14 +23,6 @@ export class ProductService {
     this.set.add(product);
   }
 
-  increaseValue(product) {
-    this.set.forEach(element => {
-      if (element.idProduct === product.idProduct) {
-        element.orderAmount = product.orderAmount;
-      }
-    });
-  }
-
   getCart() {
     return this.set;
   }
