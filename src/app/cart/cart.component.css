@@ -1,0 +1,13 @@
+h2{
+    padding-top: .5em;
+    font-family: 'Fredoka One', cursive;    
+}
+h5{
+    font-family: 'Bellota Text', cursive;
+}
+
+nav{
+    -webkit-box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
+}

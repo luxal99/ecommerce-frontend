@@ -49,8 +49,8 @@
       <p class="product-paragraf">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
         standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
         a type specimen book. It has survived not only five c</p>
-      <button mat-raised-button color="primary" matBadge="8" matBadgePosition="before" class="cart-btn" matBadgeColor="accent">
-        Action
+      <button [routerLink]="['/cart']" routerLinkActive="router-link-active"  mat-raised-button color="primary" matBadge="{{cartSize}}" matBadgePosition="before" class="cart-btn" matBadgeColor="accent">
+        Go to cart
       </button>
     </div>
     <div class="product-slider">
@@ -66,7 +66,7 @@
               <div>
                 <button class="border-btn-orange" routerLink="/detail/{{product.idProduct}}"
                   routerLinkActive="router-link-active" mat-button>Detail</button>
-                <button mat-button class="full-btn-orange" (click)="findProductById(product.id)">Add to card</button>
+                <button mat-button class="full-btn-orange" (click)="addToCart(product)">Add to card</button>
               </div>
             </div>
           </div>

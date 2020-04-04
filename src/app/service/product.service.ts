@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
 
-
+  total = 0;
   private cart: Array<any> = [];
 
   constructor(public http: HttpClient) { }
@@ -19,16 +19,40 @@ export class ProductService {
 
   }
 
-  addToCart(product: Object) {
-    console.log(product);
+  addToCart(product) {
 
-    this.cart.push(product)
+    if (this.cart.length===0) {
+      this.cart.push(product);
+    }else{
+      this.cart.forEach(element => {
+        if (element.idProduct === product.idProduct) {
+          element.orderAmount++;
+          
+        }else{
+         this.cart.push(product);
+   
+        }
+       });
+    }
 
+
+  
 
   }
 
   getCart() {
     return this.cart;
+  }
+
+  sum() {
+    this.total = 0;
+    this.cart.forEach(element => {
+      this.total += (element.price) * (element.orderAmount);
+      console.log(this.total);
+
+    });
+
+    return this.total;
   }
 }
 
