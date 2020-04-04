@@ -2,6 +2,7 @@
 /* CSS HEADER START */
 
 .header{
+    height: 55vh;
     background-color: #FF9B28;
 }
 nav{
@@ -115,10 +116,7 @@ nav{
     -webkit-align-items: center;
     align-items: center;
   }
-  .product-slider{
-      margin-top: 10em;
 
-  }
   .slider{
     -webkit-box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 62px -21px rgba(0,0,0,0.75);
@@ -129,8 +127,7 @@ nav{
   }
 
   .product-slider-container{
-     padding-top: 5em;
-     padding-bottom: 5em;
+    padding: 5em;
   }
 
   .nav-link{
@@ -139,4 +136,24 @@ nav{
 
 .registrationDialog{
     background-color: #FF9B28;
+}
+
+.product-h1{
+    font-family: 'Fredoka One', cursive;   
+    padding-top: 2em;
+    font-size: 50px;
+}
+.product-paragraf{
+    font-family: 'Bellota Text', cursive;
+    font-size: 22px;
+    padding-top: 2em;
+}
+
+.cart-btn{
+    padding-left: 3em;
+    padding-right: 3em;
+    font-size: 20px;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    margin-top: 1em;
 }
