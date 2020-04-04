@@ -8,12 +8,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
 
+
+  private cart: Array<any> = [];
+
   constructor(public http: HttpClient) { }
 
 
   getAllProducts() {
-    return  this.http.get("api/getAllProducts", { responseType: 'json' });
+    return this.http.get("api/getAllProducts", { responseType: 'json' });
 
+  }
+
+  addToCart(product: Object) {
+    console.log(product);
+
+    this.cart.push(product)
+
+
+  }
+
+  getCart() {
+    return this.cart;
   }
 }
 

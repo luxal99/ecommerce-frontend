@@ -11,13 +11,15 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { RegistrationDialogComponent } from './home/registration-dialog/registration-dialog.component';
 import { LoginDialogComponent } from './home/login-dialog/login-dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProductDetailComponent,
     RegistrationDialogComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
