@@ -19,4 +19,8 @@ export class OrderService {
   getAnalytics(){
     return this.http.get("api/admin/getAnalytics",{responseType:'json'});
   }
+
+  deleteOrder(_id){
+    return this.http.delete("api/deleteOrder/"+_id,{responseType:'text'});
+  }
 }

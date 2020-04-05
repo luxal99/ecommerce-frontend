@@ -1,4 +1,8 @@
+
 <div class="dashboard-div">
+  <div class="text-right">
+    <button mat-raised-button class="logout-btn" color="primary" (click)="logout()">Logout</button>
+  </div>
   <div class="row text-left">
     <div class="col-sm">
       <div class="row info-row">
@@ -100,7 +104,7 @@
         <td mat-cell *matCellDef="let element"> 
         <div class="text-center">
           <button mat-raised-button class="option-btn" (click)="openOrderOverviewDialog(element)" >View</button>
-          <button mat-raised-button  class="option-btn" color="warn" (click)="deleteProduct(element.idProduct)" >Delete</button>
+          <button mat-raised-button  class="option-btn" color="warn" (click)="deleteOrder(element._id)" >Delete</button>
         </div>
         </td>
       </ng-container>

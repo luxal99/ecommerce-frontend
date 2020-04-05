@@ -46,3 +46,10 @@ h1{
 .info-row{
     margin-bottom: 5em;
 }
+.logout-btn{
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: 18px;
+    padding-top: .3em;
+    padding-bottom: .3em;
+}

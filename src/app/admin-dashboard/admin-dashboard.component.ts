@@ -11,6 +11,7 @@ import { OrderService } from '../service/order.service';
 import { OrderDiloagOverviewComponent } from './order-diloag-overview/order-diloag-overview.component';
 import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
 import { Color, Label } from 'ng2-charts';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -19,7 +20,9 @@ import { Color, Label } from 'ng2-charts';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor(public productService: ProductService, public loginService: LoginService, public dialog: MatDialog,public orderService:OrderService) { }
+  constructor(public productService: ProductService,
+     public loginService: LoginService, public dialog: MatDialog,
+     public orderService:OrderService,public router:Router) { }
 
   //  Lista proizvoda za nasu kompaniju
   listOfProduct: any = [];
@@ -140,12 +143,26 @@ export class AdminDashboardComponent implements OnInit {
     })
   }
 
+  logout(){
+    localStorage.removeItem("idCompany");
+    this.router.navigate(['/home']);
+    
+  }
 
   // Servis za brisanje proizvoda
   deleteProduct(idProduct) {
     this.productService.deleteProduct(idProduct).subscribe(data => {
       this.getAllProducts();
 
+    })
+  }
+
+  deleteOrder(id){
+    console.log("ID: ",id);
+    
+    this.orderService.deleteOrder(id).subscribe(data=>{
+      
+      this.getOrders();
     })
   }
   barChartOptions: ChartOptions = {
