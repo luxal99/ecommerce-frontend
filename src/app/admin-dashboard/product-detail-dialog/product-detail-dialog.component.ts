@@ -8,6 +8,7 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 })
 export class ProductDetailDialogComponent implements OnInit {
 
+  // data - Prosledjen objekat product{} prilikom otvaranja dijaloga
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {

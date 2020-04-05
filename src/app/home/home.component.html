@@ -1,8 +1,9 @@
-<div >
+<div>
   <div>
     <nav class="navbar navbar-expand-lg navbar-light">
       <img src="../../assets/img/e-commerce.png" style="width: 80px;" alt="" class="img-fluid">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -16,57 +17,69 @@
           <li class="nav-item">
             <a class="nav-link"  (click)="openLoginDialog()">Login</a>
           </li>
-          
+
         </ul>
-        
+
       </div>
     </nav>
-  
+
     <div class="header">
-        <div class="row">
-          <div class="col-sm">
-            <div class="text-div text-left">
-              <h1 class="header-h1  ">Buy best products from <br> All or the world</h1>
-              <p class="header-paragraf">Lorem Ipsum has been the industry's standard dummy <br> text ever since the 1500s, when an unknown printer took</p>
-            </div>
-            <div class="container btn-container">
-              <button class="full-btn" mat-button>Btn1</button>
-              <button class="border-btn" mat-button>Btn1</button>
-            </div>
+      <div class="row">
+        <div class="col-sm">
+          <div class="text-div text-left">
+            <h1 class="header-h1  ">Buy best products from <br> All or the world</h1>
+            <p class="header-paragraf">Lorem Ipsum has been the industry's standard dummy <br> text ever since the
+              1500s, when an unknown printer took</p>
           </div>
-          <div class="col-sm text-center">
-            <img src="../../assets/img/6910486_preview.png" alt="" class="img-fluid">
+          <div class="container btn-container">
+            <button class="full-btn" mat-button>Btn1</button>
+            <button class="border-btn" mat-button>Btn1</button>
           </div>
         </div>
-        
+        <div class="col-sm text-center">
+          <img src="../../assets/img/6910486_preview.png" alt="" class="img-fluid">
+        </div>
+      </div>
+
     </div>
-   
+
+    <div class="container text-center">
+      <h1 class="text center product-h1">Our product</h1>
+      <mat-divider></mat-divider>
+      <p class="product-paragraf">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a type specimen book. It has survived not only five c</p>
+      <button [routerLink]="['/cart']" routerLinkActive="router-link-active"  mat-raised-button color="primary" matBadge="{{cartSize}}" matBadgePosition="before" class="cart-btn" matBadgeColor="accent">
+        Go to cart
+      </button>
+    </div>
     <div class="product-slider">
       <swiper [config]="config">
 
         <div class="swiper-wrapper product-slider-container">
-      
+
           <div class="swiper-slide slider" *ngFor="let product of listOfProducts">
             <div>
-              <img style="width: 300px;" src="{{product.image}}"/>
-            <h3 class="product-title-h3">{{product.title}}</h3>
-            <h3 class="product-price-h3">{{product.price}}</h3>   
-            <div>
-              <button class="border-btn-orange" routerLink="/detail/{{product.idProduct}}" routerLinkActive="router-link-active"  mat-button>Detail</button>
-              <button mat-button class="full-btn-orange" (click)="findProductById(product.id)">Add to card</button>
-            </div>
+              <img style="width: 300px;" src="{{product.picture}}" />
+              <h3 class="product-title-h3">{{product.title}}</h3>
+              <h3 class="product-price-h3">{{product.price}}</h3>
+              <div>
+                <button class="border-btn-orange" routerLink="/detail/{{product.idProduct}}"
+                  routerLinkActive="router-link-active" mat-button>Detail</button>
+                <button mat-button class="full-btn-orange" (click)="addToCart(product)">Add to card</button>
+              </div>
             </div>
           </div>
-      
+
         </div>
-      
+
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
-      
+
         <!-- Add Arrows -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-      
+
       </swiper>
     </div>
   </div>

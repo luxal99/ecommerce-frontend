@@ -16,6 +16,7 @@ import {  FileSelectDirective } from 'ng2-file-upload';
 import { AddProductDialogComponent } from './admin-dashboard/add-product-dialog/add-product-dialog.component';
 import { ProductDetailDialogComponent } from './admin-dashboard/product-detail-dialog/product-detail-dialog.component';
 import { EditProductDialogComponent } from './admin-dashboard/edit-product-dialog/edit-product-dialog.component';
+import { CartComponent } from './cart/cart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { EditProductDialogComponent } from './admin-dashboard/edit-product-dialo
     LoginDialogComponent,
     AddProductDialogComponent,
     ProductDetailDialogComponent,
-    EditProductDialogComponent
+    EditProductDialogComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
