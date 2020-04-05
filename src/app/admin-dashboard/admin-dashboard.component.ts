@@ -152,12 +152,12 @@ export class AdminDashboardComponent implements OnInit {
     responsive: true,
   };
   barChartLabels: Label[] = [];
-  barChartType: ChartType = 'bar';
+  barChartType: ChartType = 'pie';
   barChartLegend = true;
   barChartPlugins = [];
 
 
-  barChartData: ChartDataSets[] = [{ data: [],backgroundColor:'#00A228',hoverBackgroundColor:'#111'}
+  barChartData: ChartDataSets[] = [{ data: [],backgroundColor:['#EC6B56',"#FFC154","#47B39C"]}
   ];
 
 
