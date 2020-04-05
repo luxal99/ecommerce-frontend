@@ -15,4 +15,8 @@ export class OrderService {
   getOrderByCompanyId(idCompany){
     return this.http.get("api/getOrdersById/"+idCompany,{responseType:'json'});
   }
+
+  getAnalytics(){
+    return this.http.get("api/admin/getAnalytics",{responseType:'json'});
+  }
 }

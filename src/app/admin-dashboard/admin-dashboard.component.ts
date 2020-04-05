@@ -9,7 +9,8 @@ import { EditProductDialogComponent } from './edit-product-dialog/edit-product-d
 import { LoginService } from '../service/login.service';
 import { OrderService } from '../service/order.service';
 import { OrderDiloagOverviewComponent } from './order-diloag-overview/order-diloag-overview.component';
-
+import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -23,6 +24,7 @@ export class AdminDashboardComponent implements OnInit {
   //  Lista proizvoda za nasu kompaniju
   listOfProduct: any = [];
   listOfOrders:any=[];
+  analyticsData:any=[];
   company = null;
 
   companyTitle;
@@ -35,6 +37,7 @@ export class AdminDashboardComponent implements OnInit {
     this.getAllProducts();
     this.findCompany();
     this.getOrders(); 
+    this.getAnalytics();  
   }
 
   // Servis koji vraca podatke u kompaniji
@@ -118,16 +121,44 @@ export class AdminDashboardComponent implements OnInit {
     })
   }
 
+  getAnalytics(){
+ 
+    
+    this.orderService.getAnalytics().subscribe(data=>{
+      this.analyticsData = data;
+      console.log(this.analyticsData);
+      this.analyticsData.forEach(element => {
+        this.barChartLabels.push(element.x);
+        this.barChartData[0].data.push(element.y)
+      
+      });
+
+      
+      
+      
+      
+    })
+  }
+
 
   // Servis za brisanje proizvoda
   deleteProduct(idProduct) {
     this.productService.deleteProduct(idProduct).subscribe(data => {
-      console.log(data);
-
       this.getAllProducts();
 
     })
   }
+  barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  barChartLabels: Label[] = [];
+  barChartType: ChartType = 'bar';
+  barChartLegend = true;
+  barChartPlugins = [];
+
+
+  barChartData: ChartDataSets[] = [{ data: [],backgroundColor:'#00A228',hoverBackgroundColor:'#111'}
+  ];
 
 
 
