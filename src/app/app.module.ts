@@ -18,6 +18,7 @@ import { ProductDetailDialogComponent } from './admin-dashboard/product-detail-d
 import { EditProductDialogComponent } from './admin-dashboard/edit-product-dialog/edit-product-dialog.component';
 import { CartComponent } from './cart/cart.component';
 import { OrderDiloagOverviewComponent } from './admin-dashboard/order-diloag-overview/order-diloag-overview.component';
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,8 +38,10 @@ import { OrderDiloagOverviewComponent } from './admin-dashboard/order-diloag-ove
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    
     FormsModule,
     HttpClientModule,
+    ChartsModule,
     NgxUsefulSwiperModule,
     MaterialModule,
     BrowserAnimationsModule
