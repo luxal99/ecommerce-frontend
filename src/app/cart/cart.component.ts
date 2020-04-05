@@ -7,6 +7,7 @@ import { LoginDialogComponent } from '../home/login-dialog/login-dialog.componen
 import { LoginService } from '../service/login.service';
 import { Order } from "../classes/Order";
 import { OrderService } from "../service/order.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -32,7 +33,8 @@ export class CartComponent implements OnInit {
   })
 
   constructor(public productService: ProductService,
-     public loginService: LoginService, private _snackBar: MatSnackBar, public dialog: MatDialog,public orderService:OrderService) { }
+     public loginService: LoginService, private _snackBar: MatSnackBar, public dialog: MatDialog,
+     public orderService:OrderService,public router: Router) { }
 
   ngOnInit() {
     this.getCart();
@@ -118,6 +120,7 @@ export class CartComponent implements OnInit {
       console.log(order);
       this.orderService.pushOrder(order).subscribe(data=>{
         this.openSnackBar("Successfully","DONE");
+        window.location.reload();
         
       })
       
