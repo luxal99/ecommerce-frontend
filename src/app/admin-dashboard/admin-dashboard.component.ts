@@ -8,6 +8,7 @@ import { ProductDetailDialogComponent } from './product-detail-dialog/product-de
 import { EditProductDialogComponent } from './edit-product-dialog/edit-product-dialog.component';
 import { LoginService } from '../service/login.service';
 import { OrderService } from '../service/order.service';
+import { OrderDiloagOverviewComponent } from './order-diloag-overview/order-diloag-overview.component';
 
 
 @Component({
@@ -86,6 +87,18 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
+  openOrderOverviewDialog(order): void {
+    const dialogRef = this.dialog.open(OrderDiloagOverviewComponent, {
+      width: 'auto',
+      backdropClass: 'addProduct',
+      data: order
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getAllProducts()
+    });
+  }
+
    /**
    * Ukoliko smo se ulogovali uspesno,nas id ce biti 
    * prosledje servisu koji u zavisnosti od njega
@@ -120,6 +133,6 @@ export class AdminDashboardComponent implements OnInit {
 
   productColumns: string[] = ['code', 'title', 'amount', 'price', 'option'];
 
-  orderColumns: string[] = ['code', 'title', 'orderAmount', 'date', 'total','option'];
+  orderColumns: string[] = ['code', 'orderAmount', 'date', 'total','option'];
 
 }

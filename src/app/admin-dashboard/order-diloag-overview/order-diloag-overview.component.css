@@ -1,0 +1,20 @@
+table{
+    width: 100%;
+}
+
+h3{
+    font-family: 'Bellota Text', cursive;
+}
+
+h1{
+     font-family: 'Fredoka One', cursive;  
+}
+
+.info-div{
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+th{
+    background-color: #FF9B28;
+}
