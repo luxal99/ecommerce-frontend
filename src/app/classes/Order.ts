@@ -2,6 +2,6 @@ import { Client } from "./Client";
 export class Order {
     idOrder?
     client: Client;
-    productList;
+    productList:Array<any>;
     total;
 }

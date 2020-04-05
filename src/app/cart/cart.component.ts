@@ -6,6 +6,7 @@ import { Product, ProductOrder } from '../classes/Product';
 import { LoginDialogComponent } from '../home/login-dialog/login-dialog.component';
 import { LoginService } from '../service/login.service';
 import { Order } from "../classes/Order";
+import { OrderService } from "../service/order.service";
 
 @Component({
   selector: 'app-cart',
@@ -30,7 +31,8 @@ export class CartComponent implements OnInit {
     orderAmount: new FormControl(1)
   })
 
-  constructor(public productService: ProductService, public loginService: LoginService, private _snackBar: MatSnackBar, public dialog: MatDialog) { }
+  constructor(public productService: ProductService,
+     public loginService: LoginService, private _snackBar: MatSnackBar, public dialog: MatDialog,public orderService:OrderService) { }
 
   ngOnInit() {
     this.getCart();
@@ -106,12 +108,18 @@ export class CartComponent implements OnInit {
 
     if (localStorage.getItem("idClient") != null) {
 
-      var order = new Order();
-      order.client = this.client;
-      order.total = this.total;
-      order.productList = this.cartList;
+      var productList:Array<any>=[];
+
+      this.cartList.forEach(element => {
+        productList.push(element);
+      });
+      var order = {client:this.client,productList:productList,total:this.total};
 
       console.log(order);
+      this.orderService.pushOrder(order).subscribe(data=>{
+        console.log(data);
+        
+      })
       
 
     } else {
