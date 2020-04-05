@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material';
 import { ProductDetailDialogComponent } from './product-detail-dialog/product-detail-dialog.component';
 import { EditProductDialogComponent } from './edit-product-dialog/edit-product-dialog.component';
 import { LoginService } from '../service/login.service';
+import { OrderService } from '../service/order.service';
 
 
 @Component({
@@ -16,10 +17,11 @@ import { LoginService } from '../service/login.service';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor(public productService: ProductService, public loginService: LoginService, public dialog: MatDialog) { }
+  constructor(public productService: ProductService, public loginService: LoginService, public dialog: MatDialog,public orderService:OrderService) { }
 
   //  Lista proizvoda za nasu kompaniju
   listOfProduct: any = [];
+  listOfOrders:any=[];
   company = null;
 
   companyTitle;
@@ -31,6 +33,7 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit() {
     this.getAllProducts();
     this.findCompany();
+    this.getOrders(); 
   }
 
   // Servis koji vraca podatke u kompaniji
@@ -94,6 +97,14 @@ export class AdminDashboardComponent implements OnInit {
     })
   }
 
+  getOrders(){
+    this.orderService.getOrderByCompanyId(localStorage.getItem("idCompany")).subscribe(data=>{
+      this.listOfOrders = data;
+      console.log(this.listOfOrders);
+      
+    })
+  }
+
 
   // Servis za brisanje proizvoda
   deleteProduct(idProduct) {
@@ -108,6 +119,7 @@ export class AdminDashboardComponent implements OnInit {
 
 
   productColumns: string[] = ['code', 'title', 'amount', 'price', 'option'];
-  orderColumns: string[] = ['code', 'title', 'orderAmount', 'date', 'total'];
+
+  orderColumns: string[] = ['code', 'title', 'orderAmount', 'date', 'total','option'];
 
 }

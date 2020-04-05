@@ -11,4 +11,8 @@ export class OrderService {
   pushOrder(order) {
     return this.http.post("api/client/saveOrder", order, { responseType: 'text' });
   }
+
+  getOrderByCompanyId(idCompany){
+    return this.http.get("api/getOrdersById/"+idCompany,{responseType:'json'});
+  }
 }
