@@ -108,5 +108,6 @@ export class AdminDashboardComponent implements OnInit {
 
 
   productColumns: string[] = ['code', 'title', 'amount', 'price', 'option'];
+  orderColumns: string[] = ['code', 'title', 'orderAmount', 'date', 'total'];
 
 }
