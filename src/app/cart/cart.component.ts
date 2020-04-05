@@ -117,7 +117,7 @@ export class CartComponent implements OnInit {
 
       console.log(order);
       this.orderService.pushOrder(order).subscribe(data=>{
-        console.log(data);
+        this.openSnackBar("Successfully","DONE");
         
       })
       
