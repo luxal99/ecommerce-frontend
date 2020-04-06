@@ -27,14 +27,16 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Application features
 
-1.Registration 
-    1.1 Client registration
-    1.2 Company registration
-2.Login with hashed password
-3.CRUD operation on product
-4.Make order
-5.Get data analytics
+<div>
+1.Registration <br>
+    1.1 Client registration  <br>
+    1.2 Company registration <br>
+2.Login with hashed password <br>
+3.CRUD operation on product <br>
+4.Make order <br>
+5.Get data analytics <br>
 
+</div>
 
 ## Application screenshots
 <img src="src/assets/01.png">
