@@ -6,22 +6,35 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+If you want to test all services clone `https://github.com/luxal99/ecommerce-spring-backend` and `https://github.com/luxal99/ecommerce-nodejs-backend`. Because this app,work on microservice architecture.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To run application properly use this command `ng serve --proxy-config proxy.config.json`
+If you use Linux OS use this command `sudo ng serve --watch --proxy-config proxy.config.json`
+
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Application pages
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1.Home
+2.Cart page
+3.Login
+4.Registration
+5.Admin dashboard
+6.Client dashboard
 
-## Running end-to-end tests
+## Application features
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+1.Registration 
+    1.1 Client registration
+    1.2 Company registration
+2.Login with hashed password
+3.CRUD operation on product
+4.Make order
+5.Get data analytics
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Application screenshots
+<img src="src/assets/01.png">
