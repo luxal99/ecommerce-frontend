@@ -13,8 +13,38 @@
 
 mat-form-field{
     width: 100%;
+    font-size: 25px
 }
 
 .text-div{
     padding-top: 5em;
+}
+.next-btn{
+    background-color: #5100B4;
+    color: #fff;
+    font-size: 18px;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    padding-right: 3em;
+    padding-left: 3em;
+}
+
+.back-btn{
+    font-size: 18px;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    padding-right: 3em;
+    padding-left: 3em;
+    margin-right: 1em;
+}
+
+.register-btn{
+    font-size: 18px;
+    padding-top: .2em;
+    padding-bottom: .2em;
+    padding-right: 5em;
+    padding-left: 5em;
+    margin-right: 1em;
+    background-color: #5100B4;
+    color: #fff;
 }

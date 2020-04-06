@@ -1,0 +1,80 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <img src="../../assets/img/e-commerce.png" style="width: 80px;" alt="" class="img-fluid">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active">Home <span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="openLoginDialog()">Login</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <div class="container text-center" style="padding-top: 2em;">
+    <div class="cart">
+      <h1 class="text-left">
+        Cart detail
+      </h1>
+      <mat-divider></mat-divider>
+      <div class="row" style="margin-top: 2em;" *ngFor="let product of cartList">
+        <div class="col-3" style="border-right: 1px solid rgb(212, 212, 212);padding: .5em;">
+          <img style="margin-top: 4em;" src="{{product.picture}}" alt="" class="img-fluid">
+        </div>
+        <div class="col-9 text-left">
+          <div class="text-right">
+            <button mat-button (click)="deleteProduct(product )">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+          <h2>{{product.title}}</h2>
+          <h5>{{product.text}}</h5>
+          <h5><span style="font-weight: bold;">Amount</span>: {{product.orderAmount}}</h5>
+          <div class="text-right">
+            <form [formGroup]="amountForm">
+
+              <mat-form-field appearance="outline">
+                <mat-label>Amount</mat-label>
+                <input matInput formControlName="orderAmount" placeholder="Amount" disabled="true" value="{{product.orderAmount}}">
+              </mat-form-field>
+            </form>
+            <button class="amount-btn" (click)="count(product)" mat-button>
+              <mat-icon class="icon text-center">add_circle</mat-icon>
+            </button>
+            <button class="amount-btn" (click)="decrease(product)" mat-button>
+              <mat-icon class="icon">remove_circle_outline</mat-icon>
+            </button>
+          </div>
+        </div>
+        <mat-divider></mat-divider>
+      </div>
+      <mat-divider style="margin-top: 2em;"></mat-divider>
+      <div class="text-left">
+        <h2>Client information</h2>
+        <mat-divider></mat-divider>
+        <div style="padding-top: 2em;">
+          <h4><span class="name-span">Name: </span><span class="info-span">{{clientName}}</span></h4>
+          <h4><span class="name-span">Lastname: </span><span class="info-span">{{clientLastname}}</span></h4>
+          <h4><span class="name-span">Mail: </span><span class="info-span">{{clientMail}}</span></h4>
+          <h4><span class="name-span">Telephone: </span><span class="info-span">{{clientTelephone}}</span></h4>
+          <h4><span class="name-span">City: </span><span class="info-span">{{clientCity}}</span></h4>
+          <h4><span class="name-span">Address: </span><span class="info-span">{{clientAddress}}</span></h4>
+        </div>
+      </div>
+      <div class="text-right" style="padding-top: 2em;padding-bottom: 3em;">
+        <h3><span class="total-text">Total:</span> <span class="total-value"> {{total}}</span></h3>
+        <button class="order-btn" mat-raised-button (click)="purchase()">Purchase</button>
+      </div>
+    </div>
+  </div>
+</div>

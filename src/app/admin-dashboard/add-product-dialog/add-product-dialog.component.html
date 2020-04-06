@@ -1,0 +1,51 @@
+<div class="text-center">
+    <form [formGroup]="productForm">
+        <div>
+            <mat-form-field class="outline-input" appearance="outline">
+                <mat-label>Product code</mat-label>
+                <input formControlName="code" matInput placeholder="SH124">
+                <mat-icon matSuffix>code</mat-icon>
+                <mat-hint>Must be unique</mat-hint>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="outline-input" appearance="outline">
+                <mat-label>Product title</mat-label>
+                <input formControlName="title" matInput placeholder="Cokolada">
+                <mat-icon matSuffix>input</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="outline-input" appearance="outline">
+                    <mat-label>Price</mat-label>
+                    <input type="number" formControlName="price" matInput placeholder="Price">
+                    <mat-icon matSuffix>attach_money</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field class="outline-input" appearance="outline">
+                    <mat-label>Amount</mat-label>
+                    <input type="number" formControlName="amount" matInput placeholder="Amount">
+                    <mat-icon matSuffix>exposure</mat-icon>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Textarea</mat-label>
+            <textarea formControlName="text" matInput></textarea>
+        </mat-form-field>
+
+        <input type="file" (change)="onFileSelect($event)" style="border: 0 !important;" formControlName="picture"/>
+ 
+
+        <!-- button to trigger the file upload when submitted -->
+        <button [disabled]="productForm.invalid" class="upload-btn" mat-button (click)="saveProduct()">
+            Save product
+        </button>
+
+    </form>
+
+       
+</div>

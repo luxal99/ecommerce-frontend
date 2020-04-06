@@ -1,0 +1,55 @@
+.add-product-btn{
+    background-color: #FF9B28;
+    color: #fff;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    padding-left: 5em;
+    padding-right: 5em;
+    margin-bottom: 2em;
+    font-size: 20px;
+}
+
+th{
+    background-color: #FF9B28;
+    font-size: 20px;
+    padding: 1em;
+}
+td,tr{
+    font-size: 18px;
+}
+table{
+    width: 100%;
+}
+
+.dashboard-div{
+    padding: 5em;
+}
+.option-btn{
+    font-size: 18px;
+    padding-left: 2em;
+    padding-right: 2em;
+    margin-left: 1em;
+}
+
+.name-span{
+    font-family: 'Fredoka One', cursive; 
+}
+
+h1,h2{
+    font-family: 'Fredoka One', cursive; 
+}
+
+.info-span{
+    font-family: 'Bellota Text', cursive;
+}
+
+.info-row{
+    margin-bottom: 5em;
+}
+.logout-btn{
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: 18px;
+    padding-top: .3em;
+    padding-bottom: .3em;
+}
