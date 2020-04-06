@@ -16,7 +16,7 @@ If you use Linux OS use this command `sudo ng serve --watch --proxy-config proxy
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-### Application pages
+## Application pages
 
 1.Home <br>
 2.Cart page<br>
@@ -39,4 +39,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 </div>
 
 ## Application screenshots
-<img src="src/assets/01.png">
+![alt](https://github.com/luxal99/ecommerce-frontend/blob/master/Screenshot%20from%202020-04-06%2009-51-28.png)
