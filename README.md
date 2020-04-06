@@ -16,14 +16,14 @@ If you use Linux OS use this command `sudo ng serve --watch --proxy-config proxy
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Application pages
+### Application pages
 
-1.Home
-2.Cart page
-3.Login
-4.Registration
-5.Admin dashboard
-6.Client dashboard
+1.Home <br>
+2.Cart page<br>
+3.Login<br>
+4.Registration<br>
+5.Admin dashboard<br>
+6.Client dashboard<br>
 
 ## Application features
 
