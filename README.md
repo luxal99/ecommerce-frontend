@@ -39,4 +39,14 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 </div>
 
 ## Application screenshots
+
+### Home page - Product list
 ![alt](http://nlpmasterakademija.com/assets/git/ecommerce/ecommerce1.jpg)
+
+### Cart
+
+![alt](http://nlpmasterakademija.com/assets/git/ecommerce/cart.jpg)
+
+### Admin dashboard
+
+![alt](http://nlpmasterakademija.com/assets/git/ecommerce/admin.jpg)
