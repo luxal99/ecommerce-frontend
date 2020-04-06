@@ -11,4 +11,16 @@ export class OrderService {
   pushOrder(order) {
     return this.http.post("api/client/saveOrder", order, { responseType: 'text' });
   }
+
+  getOrderByCompanyId(idCompany){
+    return this.http.get("api/getOrdersById/"+idCompany,{responseType:'json'});
+  }
+
+  getAnalytics(){
+    return this.http.get("api/admin/getAnalytics",{responseType:'json'});
+  }
+
+  deleteOrder(_id){
+    return this.http.delete("api/deleteOrder/"+_id,{responseType:'text'});
+  }
 }

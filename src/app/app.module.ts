@@ -17,6 +17,8 @@ import { AddProductDialogComponent } from './admin-dashboard/add-product-dialog/
 import { ProductDetailDialogComponent } from './admin-dashboard/product-detail-dialog/product-detail-dialog.component';
 import { EditProductDialogComponent } from './admin-dashboard/edit-product-dialog/edit-product-dialog.component';
 import { CartComponent } from './cart/cart.component';
+import { OrderDiloagOverviewComponent } from './admin-dashboard/order-diloag-overview/order-diloag-overview.component';
+import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,21 +31,24 @@ import { CartComponent } from './cart/cart.component';
     AddProductDialogComponent,
     ProductDetailDialogComponent,
     EditProductDialogComponent,
-    CartComponent
+    CartComponent,
+    OrderDiloagOverviewComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    
     FormsModule,
     HttpClientModule,
+    ChartsModule,
     NgxUsefulSwiperModule,
     MaterialModule,
     BrowserAnimationsModule
   ],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   providers: [HttpClientModule],
-  entryComponents:[RegistrationDialogComponent,EditProductDialogComponent, ProductDetailDialogComponent,LoginDialogComponent,AddProductDialogComponent],
+  entryComponents:[RegistrationDialogComponent,EditProductDialogComponent,OrderDiloagOverviewComponent, ProductDetailDialogComponent,LoginDialogComponent,AddProductDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

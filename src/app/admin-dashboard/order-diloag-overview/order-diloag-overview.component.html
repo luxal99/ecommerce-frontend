@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="client-div">
+    <h1>Client information</h1>
+    <mat-divider></mat-divider>
+    <div class="info-div">
+      <h3>{{client.name}}</h3>
+      <h3>{{client.lastname}}</h3>
+      <h3>{{client.mail}}</h3>
+      <h3>{{client.telephone}}</h3>
+      <h3>{{client.idUserAddress.city}}</h3>
+      <h3>{{client.idUserAddress.address}}</h3>
+    </div>
+  </div>
+  <div class="product-div">
+    <h1>Product information</h1>
+    <mat-divider></mat-divider>
+    <table mat-table [dataSource]="listOfProduct" class="mat-elevation-z8" style="margin-top: 2em;">
+
+        <ng-container matColumnDef="code">
+          <th mat-header-cell *matHeaderCellDef>Code </th>
+          <td mat-cell *matCellDef="let element"> {{element.code}} </td>
+        </ng-container>
+  
+  
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="orderAmount">
+          <th mat-header-cell *matHeaderCellDef> Amount </th>
+          <td mat-cell *matCellDef="let element"> {{element.orderAmount}} </td>
+        </ng-container>
+  
+  
+        <tr mat-header-row *matHeaderRowDef="productColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: productColumns;"></tr>
+      </table>
+  </div>
+</div> 
