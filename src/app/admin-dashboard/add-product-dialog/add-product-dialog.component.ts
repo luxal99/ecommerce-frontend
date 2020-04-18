@@ -21,6 +21,7 @@ export class AddProductDialogComponent implements OnInit {
   constructor(public productService: ProductService, private _snackBar: MatSnackBar) { }
 
   image;
+  
 
   ngOnInit(): void {
   }

@@ -21,13 +21,13 @@ import { Router } from '@angular/router';
 export class AdminDashboardComponent implements OnInit {
 
   constructor(public productService: ProductService,
-     public loginService: LoginService, public dialog: MatDialog,
-     public orderService:OrderService,public router:Router) { }
+    public loginService: LoginService, public dialog: MatDialog,
+    public orderService: OrderService, public router: Router) { }
 
   //  Lista proizvoda za nasu kompaniju
   listOfProduct: any = [];
-  listOfOrders:any=[];
-  analyticsData:any=[];
+  listOfOrders: any = [];
+  analyticsData: any = [];
   company = null;
 
   companyTitle;
@@ -39,8 +39,8 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit() {
     this.getAllProducts();
     this.findCompany();
-    this.getOrders(); 
-    this.getAnalytics();  
+    this.getOrders();
+    this.getAnalytics();
   }
 
   // Servis koji vraca podatke u kompaniji
@@ -67,7 +67,12 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  // Otvaranje dijalog za preview proizvoda
+  /**
+   * Otvaranje dijalog za preview proizvoda
+   * Prosledjivanje proizvoda
+   * @param product 
+   */
+  
   openProductDetailDialog(product): void {
     const dialogRef = this.dialog.open(ProductDetailDialogComponent, {
       width: 'auto',
@@ -80,7 +85,13 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  // Otvranje dijaloga za izmenu proizvoda
+  /**
+   * Otvranje dijaloga za izmenu proizvoda
+   * Prosledjivanje parametra product 
+   * koji predstavlja prikazani objekat u tabeli
+   * proizvoda
+   * @param product 
+   */
   openEditProductDialog(product): void {
     const dialogRef = this.dialog.open(EditProductDialogComponent, {
       width: 'auto',
@@ -93,6 +104,12 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
+  /**
+   * Prosledjivanje objekta order
+   * koji predstavlja order koji predstavlja
+   * objekat order koji je prikazan u tabeli porudzbina
+   * @param order 
+   */
   openOrderOverviewDialog(order): void {
     const dialogRef = this.dialog.open(OrderDiloagOverviewComponent, {
       width: 'auto',
@@ -105,48 +122,56 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-   /**
-   * Ukoliko smo se ulogovali uspesno,nas id ce biti 
-   * prosledje servisu koji u zavisnosti od njega
-   * pronalazi sve proizvode nase kompanije
-   */
+  /**
+  * Ukoliko smo se ulogovali uspesno,vas id ce biti 
+  * prosledje servisu koji u zavisnosti od njega
+  * pronalazi sve proizvode vase kompanije
+  */
   getAllProducts() {
     this.productService.getProductByCompanyId(localStorage.getItem("idCompany")).subscribe(data => {
       this.listOfProduct = data;
     })
   }
 
-  getOrders(){
-    this.orderService.getOrderByCompanyId(localStorage.getItem("idCompany")).subscribe(data=>{
+  /**
+   * Servis koji vraca sve poruzbine po id kompanije.
+   * Servis vraca porudzbinu sa listom samo onih proizvoda
+   * koji pripadaju toj kompaniji
+   */
+  getOrders() {
+    this.orderService.getOrderByCompanyId(localStorage.getItem("idCompany")).subscribe(data => {
       this.listOfOrders = data;
       console.log(this.listOfOrders);
-      
+
     })
   }
 
-  getAnalytics(){
- 
-    
-    this.orderService.getAnalytics().subscribe(data=>{
+  /**
+   * Servis koji vraca podatke o najprodavanijim proizvodima
+   */
+  getAnalytics() {
+
+
+    this.orderService.getAnalytics().subscribe(data => {
       this.analyticsData = data;
       console.log(this.analyticsData);
       this.analyticsData.forEach(element => {
         this.barChartLabels.push(element.x);
         this.barChartData[0].data.push(element.y)
-      
+
       });
 
-      
-      
-      
-      
+
+
+
+
     })
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem("idCompany");
     this.router.navigate(['/home']);
-    
+
   }
 
   // Servis za brisanje proizvoda
@@ -157,14 +182,16 @@ export class AdminDashboardComponent implements OnInit {
     })
   }
 
-  deleteOrder(id){
-    console.log("ID: ",id);
-    
-    this.orderService.deleteOrder(id).subscribe(data=>{
-      
+  deleteOrder(id) {
+    console.log("ID: ", id);
+
+    this.orderService.deleteOrder(id).subscribe(data => {
+
       this.getOrders();
     })
   }
+
+
   barChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -174,13 +201,13 @@ export class AdminDashboardComponent implements OnInit {
   barChartPlugins = [];
 
 
-  barChartData: ChartDataSets[] = [{ data: [],backgroundColor:['#EC6B56',"#FFC154","#47B39C"]}
+  barChartData: ChartDataSets[] = [{ data: [], backgroundColor: ['#EC6B56', "#FFC154", "#47B39C"] }
   ];
 
 
 
   productColumns: string[] = ['code', 'title', 'amount', 'price', 'option'];
 
-  orderColumns: string[] = ['code', 'orderAmount', 'date', 'total','option'];
+  orderColumns: string[] = ['code', 'orderAmount', 'date', 'total', 'option'];
 
 }

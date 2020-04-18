@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   });
 
   ngOnInit(): void {
-this.getAllProduct();
+    this.getAllProduct();
   }
 
   config: SwiperOptions = {
@@ -73,10 +73,10 @@ this.getAllProduct();
     this.productService.getAllProducts().subscribe(data => {
       this.listOfProducts = data;
     })
-    
+
   }
 
-  addToCart(product:Product){
+  addToCart(product: Product) {
     product.orderAmount = 1;
     this.cartSize++;
     this.productService.addToCart(product);
